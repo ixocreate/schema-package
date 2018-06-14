@@ -1,8 +1,8 @@
 <?php
 namespace KiwiSuite\Schema\Elements;
 
-use KiwiSuite\Schema\ElementInterface;
-use KiwiSuite\Schema\SingleElementInterface;
+use KiwiSuite\Contract\Schema\ElementInterface;
+use KiwiSuite\Contract\Schema\SingleElementInterface;
 
 abstract class AbstractSingleElement extends AbstractElement implements SingleElementInterface
 {
@@ -14,7 +14,7 @@ abstract class AbstractSingleElement extends AbstractElement implements SingleEl
     /**
      * @return bool
      */
-    public function required(): bool
+    public function isRequired(): bool
     {
         return $this->required;
     }
@@ -37,7 +37,7 @@ abstract class AbstractSingleElement extends AbstractElement implements SingleEl
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
-        $array['required'] = $this->required;
+        $array['required'] = $this->isRequired();
 
         return $array;
     }

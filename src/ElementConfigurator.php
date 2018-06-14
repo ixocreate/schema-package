@@ -4,6 +4,7 @@ namespace KiwiSuite\Schema;
 
 use KiwiSuite\Contract\Application\ConfiguratorInterface;
 use KiwiSuite\Contract\Application\ServiceRegistryInterface;
+use KiwiSuite\Contract\Schema\ElementInterface;
 use KiwiSuite\ServiceManager\Factory\AutowireFactory;
 use KiwiSuite\ServiceManager\SubManager\SubManagerConfigurator;
 

@@ -1,15 +1,10 @@
 <?php
 namespace KiwiSuite\Schema\Elements;
 
-use KiwiSuite\Schema\ElementInterface;
+use KiwiSuite\Contract\Schema\ElementInterface;
 
 abstract class AbstractElement implements ElementInterface
 {
-    /**
-     * @var string
-     */
-    protected $type;
-
     /**
      * @var string
      */
@@ -24,14 +19,6 @@ abstract class AbstractElement implements ElementInterface
      * @var array
      */
     protected $metadata = [];
-
-    /**
-     * @return string
-     */
-    public function type(): string
-    {
-        return $this->type;
-    }
 
     /**
      * @return string
@@ -112,11 +99,12 @@ abstract class AbstractElement implements ElementInterface
     public function jsonSerialize()
     {
         return [
-            'class' => get_class($this),
-            'type' => $this->type,
-            'name' => $this->name,
-            'label' => $this->label,
-            'metadata' => $this->metadata,
+            'service' => $this->serviceName(),
+            'inputType' => $this->inputType(),
+            'type' => $this->type(),
+            'name' => $this->name(),
+            'label' => $this->label(),
+            'metadata' => $this->metadata(),
         ];
     }
 

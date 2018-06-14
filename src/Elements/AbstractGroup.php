@@ -1,10 +1,15 @@
 <?php
 namespace KiwiSuite\Schema\Elements;
 
-use KiwiSuite\Schema\ElementInterface;
-use KiwiSuite\Schema\GroupInterface;
+use KiwiSuite\CommonTypes\Entity\SchemaType;
+use KiwiSuite\Contract\Schema\ElementInterface;
+use KiwiSuite\Contract\Schema\GroupInterface;
+use KiwiSuite\Contract\Schema\SchemaInterface;
+use KiwiSuite\Contract\Schema\TransformableInterface;
+use KiwiSuite\Contract\Type\TypeInterface;
+use KiwiSuite\Entity\Type\Type;
 
-abstract class AbstractGroup extends AbstractElement implements GroupInterface
+abstract class AbstractGroup extends AbstractElement implements GroupInterface, TransformableInterface
 {
     /**
      * @var ElementInterface[]
@@ -30,9 +35,9 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface
 
     /**
      * @param string $name
-     * @return GroupInterface
+     * @return SchemaInterface
      */
-    public function remove(string $name): GroupInterface
+    public function remove(string $name): SchemaInterface
     {
         $group = clone $this;
 
@@ -47,21 +52,32 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface
 
     /**
      * @param array $elements
-     * @return ElementInterface
+     * @return SchemaInterface
      */
-    public function withElements(array $elements): ElementInterface
+    public function withElements(array $elements): SchemaInterface
     {
-        $group = clone $this;
-        $group->elements = $elements;
+        $group = $this;
+        foreach ($elements as $element) {
+            $group = $group->withAddedElement($element);
+        }
 
         return $group;
     }
 
     /**
-     * @param ElementInterface $element
-     * @return ElementInterface
+     * @param string $name
+     * @return bool
      */
-    public function withAddedElement(ElementInterface $element): ElementInterface
+    public function has(string $name): bool
+    {
+        return \array_key_exists($name, $this->elements);
+    }
+
+    /**
+     * @param ElementInterface $element
+     * @return SchemaInterface
+     */
+    public function withAddedElement(ElementInterface $element): SchemaInterface
     {
         $group = clone $this;
         $group->elements[$element->name()] = $element;
@@ -75,8 +91,13 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
-        $array['elements'] = array_values($this->elements);
+        $array['elements'] = array_values($this->elements());
 
         return $array;
+    }
+
+    public function transform($data): TypeInterface
+    {
+        return Type::create($data, SchemaType::class, ['schema' => $this]);
     }
 }
