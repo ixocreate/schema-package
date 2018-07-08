@@ -1,17 +1,17 @@
 <?php
 namespace KiwiSuite\Schema;
 
+use KiwiSuite\Contract\Schema\BuilderInterface;
 use KiwiSuite\Contract\Schema\ElementInterface;
 use KiwiSuite\Contract\Schema\GroupInterface;
 use KiwiSuite\Contract\Type\SchemaElementInterface;
 use KiwiSuite\Contract\Type\TypeInterface;
 use KiwiSuite\Entity\Entity\Definition;
 use KiwiSuite\Entity\Entity\DefinitionCollection;
-use KiwiSuite\Entity\Type\Type;
 use KiwiSuite\Entity\Type\TypeSubManager;
 use KiwiSuite\Schema\Elements\TextElement;
 
-final class Builder
+final class Builder implements BuilderInterface
 {
     /**
      * @var ElementSubManager
@@ -25,6 +25,7 @@ final class Builder
     /**
      * Builder constructor.
      * @param ElementSubManager $elementSubManager
+     * @param TypeSubManager $typeSubManager
      */
     public function __construct(ElementSubManager $elementSubManager, TypeSubManager $typeSubManager)
     {

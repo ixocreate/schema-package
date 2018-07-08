@@ -5,6 +5,7 @@ use KiwiSuite\CommonTypes\Entity\SchemaType;
 use KiwiSuite\Contract\Schema\ElementInterface;
 use KiwiSuite\Contract\Schema\GroupInterface;
 use KiwiSuite\Contract\Schema\SchemaInterface;
+use KiwiSuite\Contract\Schema\StructuralGroupingInterface;
 use KiwiSuite\Contract\Schema\TransformableInterface;
 use KiwiSuite\Contract\Type\TypeInterface;
 use KiwiSuite\Entity\Type\Type;
@@ -22,6 +23,26 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     public function elements(): array
     {
         return $this->elements;
+    }
+
+    /**
+     * @return ElementInterface[]
+     */
+    public function all(): array
+    {
+        $elements = [];
+
+        foreach ($this->elements() as $name => $element) {
+            if (!($element instanceof StructuralGroupingInterface)) {
+                $elements[$name] = $element;
+                continue;
+            }
+
+            foreach ($element->all() as $innerName => $innerElement) {
+                $elements[$innerName] = $innerElement;
+            }
+        }
+        return $elements;
     }
 
     /**

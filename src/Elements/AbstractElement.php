@@ -31,7 +31,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @return string
      */
-    public function label(): string
+    public function label(): ?string
     {
         return $this->label;
     }
