@@ -18,6 +18,7 @@ use KiwiSuite\Schema\Elements\SelectElement;
 use KiwiSuite\Schema\Elements\TabbedGroupElement;
 use KiwiSuite\Schema\Elements\TextareaElement;
 use KiwiSuite\Schema\Elements\TextElement;
+use KiwiSuite\Schema\Elements\YouTubeElement;
 
 $element->addElement(TextElement::class);
 $element->addElement(TextareaElement::class);
@@ -33,5 +34,6 @@ $element->addElement(SectionElement::class);
 $element->addElement(GroupElement::class);
 $element->addElement(LinkElement::class);
 $element->addElement(HtmlElement::class);
+$element->addElement(YouTubeElement::class);
 $element->addElement(BlockContainerElement::class);
 $element->addElement(TabbedGroupElement::class);
