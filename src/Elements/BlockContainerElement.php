@@ -121,7 +121,7 @@ final class BlockContainerElement extends AbstractGroup
         /** @var BlockInterface $blockObj */
         $blockObj = $this->blockSubManager->get($block);
 
-        $schema = $blockObj->schema($this->builder);
+        $schema = $blockObj->receiveSchema($this->builder);
 
         $group = $this->builder->create(GroupElement::class, $block);
         $group = $group->withLabel($blockObj->label());

@@ -4,6 +4,7 @@ namespace KiwiSuite\Schema;
 use KiwiSuite\CommonTypes\Entity\SchemaType;
 use KiwiSuite\Contract\Schema\ElementInterface;
 use KiwiSuite\Contract\Schema\SchemaInterface;
+use KiwiSuite\Contract\Schema\SchemaReceiverInterface;
 use KiwiSuite\Contract\Schema\StructuralGroupingInterface;
 use KiwiSuite\Contract\Schema\TransformableInterface;
 use KiwiSuite\Contract\Type\TypeInterface;
@@ -15,6 +16,32 @@ final class Schema implements SchemaInterface, TransformableInterface
      * @var ElementInterface[]
      */
     private $elements = [];
+
+    /**
+     * @var SchemaReceiverInterface|null
+     */
+    private $schemaReceiver;
+
+    /**
+     * Schema constructor.
+     * @param SchemaReceiverInterface|null $schemaReceiver
+     */
+    public function __construct(SchemaReceiverInterface $schemaReceiver = null)
+    {
+        $this->schemaReceiver = $schemaReceiver;
+    }
+
+    /**
+     * @param SchemaReceiverInterface $schemaReceiver
+     * @return Schema
+     */
+    public function withSchemaReceiver(SchemaReceiverInterface $schemaReceiver): SchemaInterface
+    {
+        $schema = clone $this;
+        $schema->schemaReceiver = $schemaReceiver;
+
+        return $schema;
+    }
 
     /**
      * @param array $elements
@@ -97,6 +124,11 @@ final class Schema implements SchemaInterface, TransformableInterface
     public function transform($data): TypeInterface
     {
         return Type::create($data, SchemaType::class, ['schema' => $this]);
+    }
+
+    public function schemaReceiver(): ? SchemaReceiverInterface
+    {
+        return $this->schemaReceiver;
     }
 
     /**

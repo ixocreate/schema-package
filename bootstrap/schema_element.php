@@ -3,6 +3,8 @@ namespace KiwiSuite\Schema;
 
 /** @var ElementConfigurator $element */
 use KiwiSuite\Schema\Elements\BlockContainerElement;
+use KiwiSuite\Schema\Elements\CollectionContainerElement;
+use KiwiSuite\Schema\Elements\CollectionElement;
 use KiwiSuite\Schema\Elements\ColorElement;
 use KiwiSuite\Schema\Elements\DateElement;
 use KiwiSuite\Schema\Elements\DateTimeElement;
@@ -37,3 +39,4 @@ $element->addElement(HtmlElement::class);
 $element->addElement(YouTubeElement::class);
 $element->addElement(BlockContainerElement::class);
 $element->addElement(TabbedGroupElement::class);
+$element->addElement(CollectionElement::class);

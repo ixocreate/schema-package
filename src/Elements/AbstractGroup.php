@@ -5,6 +5,7 @@ use KiwiSuite\CommonTypes\Entity\SchemaType;
 use KiwiSuite\Contract\Schema\ElementInterface;
 use KiwiSuite\Contract\Schema\GroupInterface;
 use KiwiSuite\Contract\Schema\SchemaInterface;
+use KiwiSuite\Contract\Schema\SchemaReceiverInterface;
 use KiwiSuite\Contract\Schema\StructuralGroupingInterface;
 use KiwiSuite\Contract\Schema\TransformableInterface;
 use KiwiSuite\Contract\Type\TypeInterface;
@@ -16,6 +17,11 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
      * @var ElementInterface[]
      */
     protected $elements = [];
+
+    /**
+     * @var SchemaReceiverInterface|null
+     */
+    protected $schemaReceiver;
 
     /**
      * @return ElementInterface[]
@@ -121,4 +127,19 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     {
         return Type::create($data, SchemaType::class, ['schema' => $this]);
     }
+
+    public function withSchemaReceiver(SchemaReceiverInterface $schemaReceiver): SchemaInterface
+    {
+        $group = clone $this;
+        $group->schemaReceiver = $schemaReceiver;
+
+        return $group;
+    }
+
+    public function schemaReceiver(): ? SchemaReceiverInterface
+    {
+        return $this->schemaReceiver;
+    }
+
+
 }
