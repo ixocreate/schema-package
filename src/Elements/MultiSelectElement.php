@@ -3,7 +3,7 @@ namespace KiwiSuite\Schema\Elements;
 
 use KiwiSuite\Contract\Type\TypeInterface;
 
-final class SelectElement extends AbstractSingleElement
+final class MultiSelectElement extends AbstractSingleElement
 {
     private $options = [];
 
@@ -14,17 +14,17 @@ final class SelectElement extends AbstractSingleElement
 
     public function type(): string
     {
-        return TypeInterface::TYPE_STRING;
+        return TypeInterface::TYPE_ARRAY;
     }
 
     public function inputType(): string
     {
-        return 'select';
+        return 'multiselect';
     }
 
     public static function serviceName(): string
     {
-        return 'select';
+        return 'multiselect';
     }
 
     /**
@@ -35,7 +35,7 @@ final class SelectElement extends AbstractSingleElement
         return $this->options;
     }
 
-    public function withOptions(array $options): SelectElement
+    public function withOptions(array $options): MultiSelectElement
     {
         $element = clone $this;
         $element->options = $options;
@@ -48,7 +48,7 @@ final class SelectElement extends AbstractSingleElement
         return $this->resource;
     }
 
-    public function withResource(string $resource, string $value, string $label): SelectElement
+    public function withResource(string $resource, string $value, string $label): MultiSelectElement
     {
         $element = clone $this;
         $element->resource = [
