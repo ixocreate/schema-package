@@ -3,6 +3,7 @@ namespace KiwiSuite\Schema;
 
 /** @var ElementConfigurator $element */
 use KiwiSuite\Schema\Elements\BlockContainerElement;
+use KiwiSuite\Schema\Elements\CheckboxElement;
 use KiwiSuite\Schema\Elements\CollectionContainerElement;
 use KiwiSuite\Schema\Elements\CollectionElement;
 use KiwiSuite\Schema\Elements\ColorElement;
@@ -42,3 +43,4 @@ $element->addElement(YouTubeElement::class);
 $element->addElement(BlockContainerElement::class);
 $element->addElement(TabbedGroupElement::class);
 $element->addElement(CollectionElement::class);
+$element->addElement(CheckboxElement::class);
