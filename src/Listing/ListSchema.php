@@ -1,4 +1,14 @@
 <?php
+/**
+ * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
+ *
+ * @package kiwi-suite/schema
+ * @link https://github.com/kiwi-suite/schema
+ * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
 namespace KiwiSuite\Schema\Listing;
 
 use KiwiSuite\Contract\Schema\Listing\ElementInterface;
@@ -66,7 +76,7 @@ final class ListSchema implements ListSchemaInterface
     public function jsonSerialize()
     {
         return [
-            'elements' => array_values($this->elements),
+            'elements' => \array_values($this->elements),
             'defaultSorting' => $this->defaultSorting,
         ];
     }

@@ -1,4 +1,14 @@
 <?php
+/**
+ * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
+ *
+ * @package kiwi-suite/schema
+ * @link https://github.com/kiwi-suite/schema
+ * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
 namespace KiwiSuite\Schema\Elements;
 
 use KiwiSuite\CommonTypes\Entity\SchemaType;
@@ -118,7 +128,7 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
-        $array['elements'] = array_values($this->elements());
+        $array['elements'] = \array_values($this->elements());
 
         return $array;
     }
@@ -140,6 +150,4 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     {
         return $this->schemaReceiver;
     }
-
-
 }

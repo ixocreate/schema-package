@@ -1,4 +1,14 @@
 <?php
+/**
+ * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
+ *
+ * @package kiwi-suite/schema
+ * @link https://github.com/kiwi-suite/schema
+ * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
 namespace KiwiSuite\Schema\Elements;
 
 use KiwiSuite\Cms\Block\BlockInterface;
@@ -63,8 +73,8 @@ final class BlockContainerElement extends AbstractGroup
 
     /**
      * @param ElementInterface $element
-     * @return SchemaInterface
      * @throws \Exception
+     * @return SchemaInterface
      */
     public function withAddedElement(ElementInterface $element): SchemaInterface
     {
@@ -97,17 +107,17 @@ final class BlockContainerElement extends AbstractGroup
         $parsedBlocks = [];
 
         foreach ($blocks as $blockName) {
-            if (strpos($blockName, '*') === false) {
-                if (array_key_exists($blockName, $this->blockSubManager->getServiceManagerConfig()->getNamedServices())) {
+            if (\mb_strpos($blockName, '*') === false) {
+                if (\array_key_exists($blockName, $this->blockSubManager->getServiceManagerConfig()->getNamedServices())) {
                     $parsedBlocks[] = $blockName;
                 }
                 continue;
             }
 
-            $beginningPart = substr($blockName, 0, strpos($blockName, '*'));
+            $beginningPart = \mb_substr($blockName, 0, \mb_strpos($blockName, '*'));
 
-            foreach (array_keys($this->blockSubManager->getServiceManagerConfig()->getNamedServices()) as $mappingBlock) {
-                if (substr($mappingBlock, 0, strlen($beginningPart)) === $beginningPart) {
+            foreach (\array_keys($this->blockSubManager->getServiceManagerConfig()->getNamedServices()) as $mappingBlock) {
+                if (\mb_substr($mappingBlock, 0, \mb_strlen($beginningPart)) === $beginningPart) {
                     $parsedBlocks[] = $mappingBlock;
                 }
             }

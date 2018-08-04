@@ -1,4 +1,14 @@
 <?php
+/**
+ * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
+ *
+ * @package kiwi-suite/schema
+ * @link https://github.com/kiwi-suite/schema
+ * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
 namespace KiwiSuite\Schema;
 
 use KiwiSuite\Contract\Schema\BuilderInterface;
@@ -78,7 +88,7 @@ final class Builder implements BuilderInterface
 
         /** @var Definition $definition */
         foreach ($definitions as $definition) {
-            if (in_array($definition->getName(), ['id', 'createdAt', 'updatedAt'])) {
+            if (\in_array($definition->getName(), ['id', 'createdAt', 'updatedAt'])) {
                 continue;
             }
             if ($this->typeSubManager->has($definition->getType())) {
@@ -88,7 +98,7 @@ final class Builder implements BuilderInterface
                     /** @var ElementInterface $element */
                     $element = $type->schemaElement($this->elementSubManager);
                     $element = $element->withName($definition->getName())
-                        ->withLabel(ucfirst($definition->getName()));
+                        ->withLabel(\ucfirst($definition->getName()));
 
                     $schema = $schema->withAddedElement($element);
 
@@ -98,7 +108,7 @@ final class Builder implements BuilderInterface
 
             /** @var ElementInterface $element */
             $element = $this->create(TextElement::class, $definition->getName());
-            $element = $element->withLabel(ucfirst($definition->getName()));
+            $element = $element->withLabel(\ucfirst($definition->getName()));
 
             $schema = $schema->withAddedElement($element);
         }
