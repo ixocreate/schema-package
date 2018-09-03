@@ -35,6 +35,15 @@ final class ListSchema implements ListSchemaInterface
     }
 
     /**
+     * @param string $name
+     * @return bool
+     */
+    public function has(string $name): bool
+    {
+        return array_key_exists($name, $this->elements());
+    }
+
+    /**
      * @param ElementInterface $element
      * @return ListSchemaInterface
      */
