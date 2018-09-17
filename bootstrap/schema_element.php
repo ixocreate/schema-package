@@ -2,6 +2,8 @@
 namespace KiwiSuite\Schema;
 
 /** @var ElementConfigurator $element */
+use KiwiSuite\Schema\Elements\ApplicationElement;
+use KiwiSuite\Schema\Elements\AudioElement;
 use KiwiSuite\Schema\Elements\BlockContainerElement;
 use KiwiSuite\Schema\Elements\CheckboxElement;
 use KiwiSuite\Schema\Elements\CollectionElement;
@@ -14,6 +16,7 @@ use KiwiSuite\Schema\Elements\HtmlElement;
 use KiwiSuite\Schema\Elements\ImageElement;
 use KiwiSuite\Schema\Elements\LinkElement;
 use KiwiSuite\Schema\Elements\MapElement;
+use KiwiSuite\Schema\Elements\MediaElement;
 use KiwiSuite\Schema\Elements\MultiCheckboxElement;
 use KiwiSuite\Schema\Elements\MultiSelectElement;
 use KiwiSuite\Schema\Elements\NumberElement;
@@ -24,6 +27,7 @@ use KiwiSuite\Schema\Elements\SelectElement;
 use KiwiSuite\Schema\Elements\TabbedGroupElement;
 use KiwiSuite\Schema\Elements\TextareaElement;
 use KiwiSuite\Schema\Elements\TextElement;
+use KiwiSuite\Schema\Elements\VideoElement;
 use KiwiSuite\Schema\Elements\YouTubeElement;
 
 $element->addElement(TextElement::class);
@@ -49,3 +53,7 @@ $element->addElement(TabbedGroupElement::class);
 $element->addElement(CollectionElement::class);
 $element->addElement(CheckboxElement::class);
 $element->addElement(DocumentElement::class);
+$element->addElement(MediaElement::class);
+$element->addElement(ApplicationElement::class);
+$element->addElement(AudioElement::class);
+$element->addElement(VideoElement::class);
