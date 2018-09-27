@@ -2,7 +2,7 @@
 namespace KiwiSuite\Schema;
 
 /** @var ElementConfigurator $element */
-use KiwiSuite\Schema\Elements\ApplicationElement;
+use KiwiSuite\Schema\Elements\DocumentElement;
 use KiwiSuite\Schema\Elements\AudioElement;
 use KiwiSuite\Schema\Elements\BlockContainerElement;
 use KiwiSuite\Schema\Elements\CheckboxElement;
@@ -10,7 +10,6 @@ use KiwiSuite\Schema\Elements\CollectionElement;
 use KiwiSuite\Schema\Elements\ColorElement;
 use KiwiSuite\Schema\Elements\DateElement;
 use KiwiSuite\Schema\Elements\DateTimeElement;
-use KiwiSuite\Schema\Elements\DocumentElement;
 use KiwiSuite\Schema\Elements\GroupElement;
 use KiwiSuite\Schema\Elements\HtmlElement;
 use KiwiSuite\Schema\Elements\ImageElement;
@@ -54,6 +53,6 @@ $element->addElement(CollectionElement::class);
 $element->addElement(CheckboxElement::class);
 $element->addElement(DocumentElement::class);
 $element->addElement(MediaElement::class);
-$element->addElement(ApplicationElement::class);
+$element->addElement(DocumentElement::class);
 $element->addElement(AudioElement::class);
 $element->addElement(VideoElement::class);

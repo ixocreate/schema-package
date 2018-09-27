@@ -11,22 +11,22 @@
 declare(strict_types=1);
 namespace KiwiSuite\Schema\Elements;
 
-use KiwiSuite\Media\Type\ApplicationType;
+use KiwiSuite\Media\Type\DocumentType;
 
-final class ApplicationElement extends AbstractSingleElement
+final class DocumentElement extends AbstractSingleElement
 {
     public function type(): string
     {
-        return ApplicationType::class;
+        return DocumentType::class;
     }
 
     public function inputType(): string
     {
-        return 'application';
+        return 'document';
     }
 
     public static function serviceName(): string
     {
-        return 'application';
+        return 'document';
     }
 }
