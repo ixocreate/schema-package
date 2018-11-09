@@ -68,18 +68,7 @@ final class RadioElement extends AbstractSingleElement
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
-
-        $array['labelProp'] = 'label';
-        $array['valueProp'] = 'value';
-
-        $options = [];
-        foreach ($this->options as $label => $value) {
-            $options[] = [
-                'label' => $label,
-                'value' => $value,
-            ];
-        }
-        $array['options'] = $options;
+        $array['options'] = $this->options();
 
         return $array;
     }
