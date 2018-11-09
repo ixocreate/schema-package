@@ -40,7 +40,7 @@ final class RadioElement extends AbstractSingleElement
         return $this->options;
     }
 
-    public function withOptions(array $options): SelectElement
+    public function withOptions(array $options): RadioElement
     {
         $element = clone $this;
         $element->options = $options;
