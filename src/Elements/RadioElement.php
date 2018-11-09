@@ -9,6 +9,7 @@
  */
 
 declare(strict_types=1);
+
 namespace KiwiSuite\Schema\Elements;
 
 use KiwiSuite\Contract\Type\TypeInterface;
@@ -17,16 +18,25 @@ final class RadioElement extends AbstractSingleElement
 {
     private $options = [];
 
+    /**
+     * @return string
+     */
     public function type(): string
     {
         return TypeInterface::TYPE_STRING;
     }
 
+    /**
+     * @return string
+     */
     public function inputType(): string
     {
         return 'radio';
     }
 
+    /**
+     * @return string
+     */
     public static function serviceName(): string
     {
         return 'radio';
@@ -40,6 +50,10 @@ final class RadioElement extends AbstractSingleElement
         return $this->options;
     }
 
+    /**
+     * @param array $options
+     * @return RadioElement
+     */
     public function withOptions(array $options): RadioElement
     {
         $element = clone $this;
@@ -54,7 +68,18 @@ final class RadioElement extends AbstractSingleElement
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
-        $array['options'] = $this->options();
+
+        $array['labelProp'] = 'label';
+        $array['valueProp'] = 'value';
+
+        $options = [];
+        foreach ($this->options as $label => $value) {
+            $options[] = [
+                'label' => $label,
+                'value' => $value,
+            ];
+        }
+        $array['options'] = $options;
 
         return $array;
     }
