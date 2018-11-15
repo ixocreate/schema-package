@@ -31,6 +31,10 @@ final class ListElement implements ElementInterface
      * @var bool
      */
     private $searchable;
+    /**
+     * @var string
+     */
+    private $type;
 
     /**
      * ListElement constructor.
@@ -38,13 +42,20 @@ final class ListElement implements ElementInterface
      * @param string $label
      * @param bool $sortable
      * @param bool $searchable
+     * @param string $type
      */
-    public function __construct(string $name, string $label, bool $sortable = true, bool $searchable = true)
-    {
+    public function __construct(
+        string $name,
+        string $label,
+        bool $sortable = true,
+        bool $searchable = true,
+        string $type = "string"
+    ) {
         $this->name = $name;
         $this->label = $label;
         $this->sortable = $sortable;
         $this->searchable = $searchable;
+        $this->type = $type;
     }
 
     /**
@@ -80,6 +91,14 @@ final class ListElement implements ElementInterface
     }
 
     /**
+     * @return string
+     */
+    public function type(): string
+    {
+        return $this->type;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
@@ -89,6 +108,7 @@ final class ListElement implements ElementInterface
             'label' => $this->label,
             'sortable' => $this->sortable,
             'searchable' => $this->searchable,
+            'type' => $this->type,
         ];
     }
 }
