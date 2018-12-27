@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Media\Type\VideoType;
+use Ixocreate\Media\Type\VideoType;
 
 final class VideoElement extends AbstractSingleElement
 {

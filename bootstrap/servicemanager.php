@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace KiwiSuite\Schema;
+namespace Ixocreate\Schema;
 
-use KiwiSuite\Schema\AdditionalSchema\AdditionalSchemaSubManager;
+use Ixocreate\Schema\AdditionalSchema\AdditionalSchemaSubManager;
 
-/** @var \KiwiSuite\ServiceManager\ServiceManagerConfigurator $serviceManager */
+/** @var \Ixocreate\ServiceManager\ServiceManagerConfigurator $serviceManager */
 
 $serviceManager->addSubManager(ElementSubManager::class);
 $serviceManager->addSubManager(AdditionalSchemaSubManager::class);

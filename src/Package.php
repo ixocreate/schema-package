@@ -10,13 +10,13 @@
 
 declare(strict_types=1);
 
-namespace KiwiSuite\Schema;
+namespace Ixocreate\Schema;
 
-use KiwiSuite\Contract\Application\ConfiguratorRegistryInterface;
-use KiwiSuite\Contract\Application\PackageInterface;
-use KiwiSuite\Contract\Application\ServiceRegistryInterface;
-use KiwiSuite\Contract\ServiceManager\ServiceManagerInterface;
-use KiwiSuite\Schema\BootstrapItem\SchemaElementBootstrapItem;
+use Ixocreate\Contract\Application\ConfiguratorRegistryInterface;
+use Ixocreate\Contract\Application\PackageInterface;
+use Ixocreate\Contract\Application\ServiceRegistryInterface;
+use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Schema\BootstrapItem\SchemaElementBootstrapItem;
 
 final class Package implements PackageInterface
 {

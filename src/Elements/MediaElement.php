@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Media\Type\MediaType;
+use Ixocreate\Media\Type\MediaType;
 
 final class MediaElement extends AbstractSingleElement
 {

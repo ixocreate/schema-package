@@ -10,10 +10,10 @@
 
 declare(strict_types=1);
 
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Contract\Schema\ElementInterface;
-use KiwiSuite\Contract\Schema\SingleElementInterface;
+use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\SingleElementInterface;
 
 abstract class AbstractSingleElement extends AbstractElement implements SingleElementInterface
 {

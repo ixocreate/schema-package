@@ -9,13 +9,13 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema;
+namespace Ixocreate\Schema;
 
-use KiwiSuite\Contract\Application\ConfiguratorInterface;
-use KiwiSuite\Contract\Application\ServiceRegistryInterface;
-use KiwiSuite\Contract\Schema\ElementInterface;
-use KiwiSuite\ServiceManager\Factory\AutowireFactory;
-use KiwiSuite\ServiceManager\SubManager\SubManagerConfigurator;
+use Ixocreate\Contract\Application\ConfiguratorInterface;
+use Ixocreate\Contract\Application\ServiceRegistryInterface;
+use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\ServiceManager\Factory\AutowireFactory;
+use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
 
 final class ElementConfigurator implements ConfiguratorInterface
 {

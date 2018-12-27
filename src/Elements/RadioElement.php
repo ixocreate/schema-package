@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Contract\Type\TypeInterface;
+use Ixocreate\Contract\Type\TypeInterface;
 
 final class RadioElement extends AbstractSingleElement
 {

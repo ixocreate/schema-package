@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\CommonTypes\Entity\DateTimeType;
+use Ixocreate\CommonTypes\Entity\DateTimeType;
 
 final class DateTimeElement extends AbstractSingleElement
 {

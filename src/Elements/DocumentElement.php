@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Media\Type\DocumentType;
+use Ixocreate\Media\Type\DocumentType;
 
 final class DocumentElement extends AbstractSingleElement
 {

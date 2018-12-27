@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Listing;
+namespace Ixocreate\Schema\Listing;
 
-use KiwiSuite\Contract\Schema\Listing\ElementInterface;
+use Ixocreate\Contract\Schema\Listing\ElementInterface;
 
 final class ListElement implements ElementInterface
 {

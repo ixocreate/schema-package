@@ -9,10 +9,10 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Listing;
+namespace Ixocreate\Schema\Listing;
 
-use KiwiSuite\Contract\Schema\Listing\ElementInterface;
-use KiwiSuite\Contract\Schema\Listing\ListSchemaInterface;
+use Ixocreate\Contract\Schema\Listing\ElementInterface;
+use Ixocreate\Contract\Schema\Listing\ListSchemaInterface;
 
 final class ListSchema implements ListSchemaInterface
 {

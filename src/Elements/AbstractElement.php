@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\ElementInterface;
 
 abstract class AbstractElement implements ElementInterface
 {

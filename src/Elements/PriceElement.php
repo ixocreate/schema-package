@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\CommonTypes\Entity\PriceType;
+use Ixocreate\CommonTypes\Entity\PriceType;
 
 final class PriceElement extends AbstractSingleElement
 {

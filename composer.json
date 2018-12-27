@@ -25,13 +25,13 @@
     },
     "autoload": {
         "psr-4": {
-            "KiwiSuite\\Schema\\": "src/"
+            "Ixocreate\\Schema\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "KiwiSuiteMisc\\Schema\\": "tests/misc/",
-            "KiwiSuiteTest\\Schema\\": "tests/src/"
+            "IxocreateMisc\\Schema\\": "tests/misc/",
+            "IxocreateTest\\Schema\\": "tests/src/"
         }
     },
     "scripts": {

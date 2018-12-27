@@ -9,17 +9,17 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema;
+namespace Ixocreate\Schema;
 
-use KiwiSuite\Contract\Schema\BuilderInterface;
-use KiwiSuite\Contract\Schema\ElementInterface;
-use KiwiSuite\Contract\Schema\GroupInterface;
-use KiwiSuite\Contract\Type\SchemaElementInterface;
-use KiwiSuite\Contract\Type\TypeInterface;
-use KiwiSuite\Entity\Entity\Definition;
-use KiwiSuite\Entity\Entity\DefinitionCollection;
-use KiwiSuite\Entity\Type\TypeSubManager;
-use KiwiSuite\Schema\Elements\TextElement;
+use Ixocreate\Contract\Schema\BuilderInterface;
+use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\GroupInterface;
+use Ixocreate\Contract\Type\SchemaElementInterface;
+use Ixocreate\Contract\Type\TypeInterface;
+use Ixocreate\Entity\Entity\Definition;
+use Ixocreate\Entity\Entity\DefinitionCollection;
+use Ixocreate\Entity\Type\TypeSubManager;
+use Ixocreate\Schema\Elements\TextElement;
 
 final class Builder implements BuilderInterface
 {

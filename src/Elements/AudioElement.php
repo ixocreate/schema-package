@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Media\Type\AudioType;
+use Ixocreate\Media\Type\AudioType;
 
 final class AudioElement extends AbstractSingleElement
 {

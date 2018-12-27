@@ -9,15 +9,15 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\CommonTypes\Entity\CollectionType;
-use KiwiSuite\Contract\Schema\ElementInterface;
-use KiwiSuite\Contract\Schema\SchemaInterface;
-use KiwiSuite\Contract\Schema\TransformableInterface;
-use KiwiSuite\Contract\Type\TypeInterface;
-use KiwiSuite\Entity\Type\Type;
-use KiwiSuite\Schema\Builder;
+use Ixocreate\CommonTypes\Entity\CollectionType;
+use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\SchemaInterface;
+use Ixocreate\Contract\Schema\TransformableInterface;
+use Ixocreate\Contract\Type\TypeInterface;
+use Ixocreate\Entity\Type\Type;
+use Ixocreate\Schema\Builder;
 
 final class CollectionElement extends AbstractGroup implements TransformableInterface
 {

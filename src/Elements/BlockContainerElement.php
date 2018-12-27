@@ -9,16 +9,16 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Cms\Block\BlockInterface;
-use KiwiSuite\Cms\Block\BlockSubManager;
-use KiwiSuite\CommonTypes\Entity\BlockContainerType;
-use KiwiSuite\Contract\Schema\ElementInterface;
-use KiwiSuite\Contract\Schema\SchemaInterface;
-use KiwiSuite\Contract\Type\TypeInterface;
-use KiwiSuite\Entity\Type\Type;
-use KiwiSuite\Schema\Builder;
+use Ixocreate\Cms\Block\BlockInterface;
+use Ixocreate\Cms\Block\BlockSubManager;
+use Ixocreate\CommonTypes\Entity\BlockContainerType;
+use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\SchemaInterface;
+use Ixocreate\Contract\Type\TypeInterface;
+use Ixocreate\Entity\Type\Type;
+use Ixocreate\Schema\Builder;
 
 final class BlockContainerElement extends AbstractGroup
 {

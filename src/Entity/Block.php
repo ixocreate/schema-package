@@ -10,14 +10,14 @@
 
 declare(strict_types=1);
 
-namespace KiwiSuite\Schema\Entity;
+namespace Ixocreate\Schema\Entity;
 
-use KiwiSuite\Cms\Block\BlockInterface;
-use KiwiSuite\Entity\Entity\DefinitionCollection;
-use KiwiSuite\Entity\Entity\EntityInterface;
-use KiwiSuite\Entity\Entity\EntityTrait;
-use KiwiSuite\Entity\Exception\InvalidPropertyException;
-use KiwiSuite\Entity\Type\Type;
+use Ixocreate\Cms\Block\BlockInterface;
+use Ixocreate\Entity\Entity\DefinitionCollection;
+use Ixocreate\Entity\Entity\EntityInterface;
+use Ixocreate\Entity\Entity\EntityTrait;
+use Ixocreate\Entity\Exception\InvalidPropertyException;
+use Ixocreate\Entity\Type\Type;
 
 final class Block implements EntityInterface
 {

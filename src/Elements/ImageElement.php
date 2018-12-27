@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\Media\Type\ImageType;
+use Ixocreate\Media\Type\ImageType;
 
 final class ImageElement extends AbstractSingleElement
 {

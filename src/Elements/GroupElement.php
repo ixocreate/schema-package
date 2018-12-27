@@ -9,10 +9,10 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\CommonTypes\Entity\SchemaType;
-use KiwiSuite\Contract\Schema\StructuralGroupingInterface;
+use Ixocreate\CommonTypes\Entity\SchemaType;
+use Ixocreate\Contract\Schema\StructuralGroupingInterface;
 
 final class GroupElement extends AbstractGroup implements StructuralGroupingInterface
 {

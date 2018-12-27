@@ -9,9 +9,9 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use KiwiSuite\CommonTypes\Entity\HtmlType;
+use Ixocreate\CommonTypes\Entity\HtmlType;
 
 final class HtmlElement extends AbstractSingleElement
 {

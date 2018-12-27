@@ -9,11 +9,11 @@
  */
 
 declare(strict_types=1);
-namespace KiwiSuite\Schema\BootstrapItem;
+namespace Ixocreate\Schema\BootstrapItem;
 
-use KiwiSuite\Contract\Application\BootstrapItemInterface;
-use KiwiSuite\Contract\Application\ConfiguratorInterface;
-use KiwiSuite\Schema\ElementConfigurator;
+use Ixocreate\Contract\Application\BootstrapItemInterface;
+use Ixocreate\Contract\Application\ConfiguratorInterface;
+use Ixocreate\Schema\ElementConfigurator;
 
 final class SchemaElementBootstrapItem implements BootstrapItemInterface
 {
