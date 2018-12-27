@@ -1,10 +1,7 @@
 <?php
 /**
- * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
- *
- * @package kiwi-suite/schema
- * @link https://github.com/kiwi-suite/schema
- * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
  * @license MIT License
  */
 
@@ -20,7 +17,6 @@ use Ixocreate\Schema\BootstrapItem\SchemaElementBootstrapItem;
 
 final class Package implements PackageInterface
 {
-
     /**
      * @param ConfiguratorRegistryInterface $configuratorRegistry
      */

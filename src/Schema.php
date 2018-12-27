@@ -1,14 +1,12 @@
 <?php
 /**
- * kiwi-suite/schema (https://github.com/kiwi-suite/schema)
- *
- * @package kiwi-suite/schema
- * @link https://github.com/kiwi-suite/schema
- * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
  * @license MIT License
  */
 
 declare(strict_types=1);
+
 namespace Ixocreate\Schema;
 
 use Ixocreate\CommonTypes\Entity\SchemaType;
@@ -78,6 +76,7 @@ final class Schema implements SchemaInterface, TransformableInterface
 
         return $schema;
     }
+
     /**
      * @param string $name
      * @return SchemaInterface
@@ -94,7 +93,6 @@ final class Schema implements SchemaInterface, TransformableInterface
 
         return $schema;
     }
-
 
     /**
      * @return ElementInterface[]
@@ -129,7 +127,6 @@ final class Schema implements SchemaInterface, TransformableInterface
     {
         return \array_values($this->elements);
     }
-
 
     public function transform($data): TypeInterface
     {

@@ -1,6 +1,6 @@
 {
     "name": "ixocreate/schema",
-    "description": "ixocreate/schema",
+    "description": "Schema implementation for IXOCREATE",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -15,10 +15,10 @@
         "ixocreate/contract": "dev-develop"
     },
     "require-dev": {
+        "ixocreate/coding-standard": "^1.0.1",
         "phpunit/phpunit": "^6.0.6",
-        "friendsofphp/php-cs-fixer": "^2.5",
-        "ixocreate/common-types": "dev-develop",
-        "php-coveralls/php-coveralls": "^2.0"
+        "php-coveralls/php-coveralls": "^2.0",
+        "ixocreate/common-types": "dev-develop"
     },
     "autoload": {
         "psr-4": {
@@ -32,6 +32,6 @@
         }
     },
     "scripts": {
-        "fix-cs": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix"
+        "fix-cs": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config vendor/ixocreate/coding-standard/.php_cs"
     }
 }
