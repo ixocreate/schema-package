@@ -13,6 +13,9 @@ use Ixocreate\Contract\Type\TypeInterface;
 
 final class SelectElement extends AbstractSingleElement
 {
+    /**
+     * @var array
+     */
     private $options = [];
 
     /**
@@ -20,16 +23,30 @@ final class SelectElement extends AbstractSingleElement
      */
     private $resource = null;
 
+    /**
+     * @var bool
+     */
+    private $extendedSelect = false;
+
+    /**
+     * @return string
+     */
     public function type(): string
     {
         return TypeInterface::TYPE_STRING;
     }
 
+    /**
+     * @return string
+     */
     public function inputType(): string
     {
         return 'select';
     }
 
+    /**
+     * @return string
+     */
     public static function serviceName(): string
     {
         return 'select';
@@ -43,6 +60,10 @@ final class SelectElement extends AbstractSingleElement
         return $this->options;
     }
 
+    /**
+     * @param array $options
+     * @return SelectElement
+     */
     public function withOptions(array $options): SelectElement
     {
         $element = clone $this;
@@ -51,11 +72,20 @@ final class SelectElement extends AbstractSingleElement
         return $element;
     }
 
+    /**
+     * @return array|null
+     */
     public function resource(): ?array
     {
         return $this->resource;
     }
 
+    /**
+     * @param string $resource
+     * @param string $value
+     * @param string $label
+     * @return SelectElement
+     */
     public function withResource(string $resource, string $value, string $label): SelectElement
     {
         $element = clone $this;
@@ -69,6 +99,26 @@ final class SelectElement extends AbstractSingleElement
     }
 
     /**
+     * @return bool
+     */
+    public function extendedSelect(): bool
+    {
+        return $this->extendedSelect;
+    }
+
+    /**
+     * @param bool $extendedSelect
+     * @return SelectElement
+     */
+    public function withExtendedSelect(bool $extendedSelect): SelectElement
+    {
+        $element = clone $this;
+        $element->extendedSelect = $extendedSelect;
+
+        return $element;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
@@ -76,6 +126,7 @@ final class SelectElement extends AbstractSingleElement
         $array = parent::jsonSerialize();
         $array['options'] = $this->options();
         $array['resource'] = $this->resource();
+        $array['extendedSelect'] = $this->extendedSelect();
 
         return $array;
     }
