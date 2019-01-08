@@ -22,6 +22,6 @@ class AdditionalSchemaSubManager extends SubManager implements SchemaReceiverInt
         /** @var AdditionalSchemaInterface $additionalSchema */
         $additionalSchema = $this->get($options['additionalSchema']);
 
-        return $additionalSchema->receiveSchema($builder);
+        return $additionalSchema->additionalSchema($builder);
     }
 }
