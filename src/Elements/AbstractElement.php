@@ -24,6 +24,11 @@ abstract class AbstractElement implements ElementInterface
     protected $label;
 
     /**
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @var array
      */
     protected $metadata = [];
@@ -42,6 +47,14 @@ abstract class AbstractElement implements ElementInterface
     public function label(): ?string
     {
         return $this->label;
+    }
+
+    /**
+     * @return string
+     */
+    public function description(): ?string
+    {
+        return $this->description;
     }
 
     /**
@@ -72,6 +85,18 @@ abstract class AbstractElement implements ElementInterface
     {
         $element = clone $this;
         $element->label = $label;
+
+        return $element;
+    }
+
+    /**
+     * @param string $description
+     * @return ElementInterface
+     */
+    public function withDescription(string $description): ElementInterface
+    {
+        $element = clone $this;
+        $element->description = $description;
 
         return $element;
     }
@@ -112,6 +137,7 @@ abstract class AbstractElement implements ElementInterface
             'type' => $this->type(),
             'name' => $this->name(),
             'label' => $this->label(),
+            'description' => $this->description(),
             'metadata' => $this->metadata(),
         ];
     }
