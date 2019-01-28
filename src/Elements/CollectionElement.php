@@ -24,21 +24,39 @@ final class CollectionElement extends AbstractGroup implements TransformableInte
      */
     private $builder;
 
+    /**
+     * @var null
+     */
+    protected $limit = null;
+
+    /**
+     * CollectionElement constructor.
+     * @param Builder $builder
+     */
     public function __construct(Builder $builder)
     {
         $this->builder = $builder;
     }
 
+    /**
+     * @return string
+     */
     public function type(): string
     {
         return CollectionType::class;
     }
 
+    /**
+     * @return string
+     */
     public function inputType(): string
     {
         return 'collection';
     }
 
+    /**
+     * @return string
+     */
     public static function serviceName(): string
     {
         return 'collection';
@@ -62,6 +80,44 @@ final class CollectionElement extends AbstractGroup implements TransformableInte
         return parent::withAddedElement($element);
     }
 
+    /**
+     * @return int|null
+     */
+    public function limit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param int|null $limit
+     * @return CollectionElement
+     */
+    public function withLimit(?int $limit): CollectionElement
+    {
+        $group = $this;
+        $group->limit = $limit;
+
+        return $group;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        $array = parent::jsonSerialize();
+        $array['limit'] = $this->limit();
+
+        return $array;
+    }
+
+    /**
+     * @param string $name
+     * @param string $label
+     * @param SchemaInterface $schema
+     * @return CollectionElement
+     * @throws \Exception
+     */
     public function addCollectionElement(string $name, string $label, SchemaInterface $schema): CollectionElement
     {
         $group = $this->builder->create(GroupElement::class, $name);

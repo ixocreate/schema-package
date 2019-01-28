@@ -28,6 +28,11 @@ final class BlockContainerElement extends AbstractGroup
     private $blockSubManager;
 
     /**
+     * @var null
+     */
+    protected $limit = null;
+
+    /**
      * @var Builder
      */
     private $builder;
@@ -71,6 +76,26 @@ final class BlockContainerElement extends AbstractGroup
     }
 
     /**
+     * @return int|null
+     */
+    public function limit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param int|null $limit
+     * @return BlockContainerElement
+     */
+    public function withLimit(?int $limit): BlockContainerElement
+    {
+        $group = $this;
+        $group->limit = $limit;
+
+        return $group;
+    }
+
+    /**
      * @param ElementInterface $element
      * @throws \Exception
      * @return SchemaInterface
@@ -87,6 +112,7 @@ final class BlockContainerElement extends AbstractGroup
     {
         $array = parent::jsonSerialize();
         $array['blocks'] = $this->blocks();
+        $array['limit'] = $this->limit();
 
         return $array;
     }
