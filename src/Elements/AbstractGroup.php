@@ -32,6 +32,11 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     protected $schemaReceiver;
 
     /**
+     * @var null
+     */
+    protected $limit = null;
+
+    /**
      * @return ElementInterface[]
      */
     public function elements(): array
@@ -121,11 +126,24 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     }
 
     /**
+     * @param int|null $limit
+     * @return SchemaInterface
+     */
+    public function withLimit(?int $limit): SchemaInterface
+    {
+        $group = $this;
+        $group->limit = $limit;
+
+        return $group;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
+        $array['limit'] = $this->limit;
         $array['elements'] = \array_values($this->elements());
 
         return $array;
