@@ -21,6 +21,7 @@ use Ixocreate\Schema\Elements\MultiSelectElement;
 use Ixocreate\Schema\Elements\NumberElement;
 use Ixocreate\Schema\Elements\PriceElement;
 use Ixocreate\Schema\Elements\RadioElement;
+use Ixocreate\Schema\Elements\SchemaElement;
 use Ixocreate\Schema\Elements\SectionElement;
 use Ixocreate\Schema\Elements\SelectElement;
 use Ixocreate\Schema\Elements\TabbedGroupElement;
@@ -29,6 +30,7 @@ use Ixocreate\Schema\Elements\TextElement;
 use Ixocreate\Schema\Elements\VideoElement;
 use Ixocreate\Schema\Elements\YouTubeElement;
 
+$element->addElement(SchemaElement::class);
 $element->addElement(TextElement::class);
 $element->addElement(TextareaElement::class);
 $element->addElement(SelectElement::class);
