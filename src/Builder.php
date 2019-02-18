@@ -13,7 +13,6 @@ use Ixocreate\Contract\Schema\BuilderInterface;
 use Ixocreate\Contract\Schema\ElementInterface;
 use Ixocreate\Contract\Schema\ElementProviderInterface;
 use Ixocreate\Contract\Schema\GroupInterface;
-use Ixocreate\Contract\Type\SchemaElementInterface;
 use Ixocreate\Contract\Type\TypeInterface;
 use Ixocreate\Entity\Entity\Definition;
 use Ixocreate\Entity\Entity\DefinitionCollection;
