@@ -11,6 +11,7 @@ namespace Ixocreate\Schema;
 
 use Ixocreate\Contract\Schema\BuilderInterface;
 use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Contract\Schema\ElementProviderInterface;
 use Ixocreate\Contract\Schema\GroupInterface;
 use Ixocreate\Contract\Type\SchemaElementInterface;
 use Ixocreate\Contract\Type\TypeInterface;
@@ -49,9 +50,16 @@ final class Builder implements BuilderInterface
      */
     public function create(string $element, string $name): ElementInterface
     {
-        /** @var ElementInterface $element */
-        $element = $this->elementSubManager->get($element);
-        return $element->withName($name);
+        return $this->get($element)->withName($name);
+    }
+
+    /**
+     * @param string $element
+     * @return ElementInterface
+     */
+    public function get(string $element): ElementInterface
+    {
+        return $this->elementSubManager->get($element);
     }
 
     /**
@@ -93,9 +101,9 @@ final class Builder implements BuilderInterface
             if ($this->typeSubManager->has($definition->getType())) {
                 /** @var TypeInterface $type */
                 $type = $this->typeSubManager->get($definition->getType());
-                if ($type instanceof SchemaElementInterface) {
+                if ($type instanceof ElementProviderInterface) {
                     /** @var ElementInterface $element */
-                    $element = $type->schemaElement($this->elementSubManager);
+                    $element = $type->provideElement($this);
                     $element = $element->withName($definition->getName())
                         ->withLabel(\ucfirst($definition->getName()));
 
