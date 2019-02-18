@@ -15,7 +15,7 @@ use Ixocreate\Contract\Schema\GroupInterface;
 use Ixocreate\Contract\Schema\SchemaInterface;
 use Ixocreate\Contract\Schema\SchemaReceiverInterface;
 use Ixocreate\Contract\Schema\StructuralGroupingInterface;
-use Ixocreate\Contract\Schema\TransformableInterface;
+use Ixocreate\Contract\Type\TransformableInterface;
 use Ixocreate\Contract\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
 

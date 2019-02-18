@@ -12,7 +12,7 @@ namespace Ixocreate\Schema\Elements;
 use Ixocreate\CommonTypes\Entity\CollectionType;
 use Ixocreate\Contract\Schema\ElementInterface;
 use Ixocreate\Contract\Schema\SchemaInterface;
-use Ixocreate\Contract\Schema\TransformableInterface;
+use Ixocreate\Contract\Type\TransformableInterface;
 use Ixocreate\Contract\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
 use Ixocreate\Schema\Builder;
