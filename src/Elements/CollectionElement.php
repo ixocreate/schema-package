@@ -115,8 +115,8 @@ final class CollectionElement extends AbstractGroup implements TransformableInte
      * @param string $name
      * @param string $label
      * @param SchemaInterface $schema
-     * @return CollectionElement
      * @throws \Exception
+     * @return CollectionElement
      */
     public function addCollectionElement(string $name, string $label, SchemaInterface $schema): CollectionElement
     {
