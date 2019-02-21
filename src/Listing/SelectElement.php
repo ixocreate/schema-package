@@ -11,12 +11,7 @@ namespace Ixocreate\Schema\Listing;
 
 use Ixocreate\Contract\Schema\Listing\ElementInterface;
 
-/**
- * Class ListElement
- * @package Ixocreate\Schema\Listing
- * @deprecated
- */
-final class ListElement implements ElementInterface
+final class SelectElement implements ElementInterface
 {
     /**
      * @var string
@@ -39,9 +34,9 @@ final class ListElement implements ElementInterface
     private $searchable;
 
     /**
-     * @var string
+     * @var array
      */
-    private $type;
+    private $flags = [];
 
     /**
      * ListElement constructor.
@@ -49,20 +44,17 @@ final class ListElement implements ElementInterface
      * @param string $label
      * @param bool $sortable
      * @param bool $searchable
-     * @param string $type
      */
     public function __construct(
         string $name,
         string $label,
         bool $sortable = true,
-        bool $searchable = true,
-        string $type = "string"
+        bool $searchable = true
     ) {
         $this->name = $name;
         $this->label = $label;
         $this->sortable = $sortable;
         $this->searchable = $searchable;
-        $this->type = $type;
     }
 
     /**
@@ -102,7 +94,30 @@ final class ListElement implements ElementInterface
      */
     public function type(): string
     {
-        return $this->type;
+        return 'select';
+    }
+
+    /**
+     * @return array
+     */
+    public function flags(): array
+    {
+        return $this->flags;
+    }
+
+    /**
+     * @param string $name
+     * @param string $label
+     * @param string $color
+     * @return SelectElement
+     */
+    public function withAddedFlag(string $name, string $label, string $color): SelectElement
+    {
+        $element = clone $this;
+        $element->flags[$name]['color'] = $color;
+        $element->flags[$name]['label'] = $label;
+
+        return $element;
     }
 
     /**
@@ -110,12 +125,23 @@ final class ListElement implements ElementInterface
      */
     public function jsonSerialize()
     {
+        $options = [
+            'values' => [],
+            'colors' => [],
+        ];
+
+        foreach ($this->flags() as $name => $data) {
+            $options['values'][$name] = $data['label'];
+            $options['colors'][$name] = $data['color'];
+        }
+
         return [
-            'name' => $this->name,
-            'label' => $this->label,
-            'sortable' => $this->sortable,
-            'searchable' => $this->searchable,
-            'type' => $this->type,
+            'name' => $this->name(),
+            'label' => $this->label(),
+            'sortable' => $this->sortable(),
+            'searchable' => $this->searchable(),
+            'type' => $this->type(),
+            'options' => $options,
         ];
     }
 }

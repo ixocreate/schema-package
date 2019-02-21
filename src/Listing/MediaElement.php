@@ -11,12 +11,7 @@ namespace Ixocreate\Schema\Listing;
 
 use Ixocreate\Contract\Schema\Listing\ElementInterface;
 
-/**
- * Class ListElement
- * @package Ixocreate\Schema\Listing
- * @deprecated
- */
-final class ListElement implements ElementInterface
+final class MediaElement implements ElementInterface
 {
     /**
      * @var string
@@ -39,30 +34,22 @@ final class ListElement implements ElementInterface
     private $searchable;
 
     /**
-     * @var string
-     */
-    private $type;
-
-    /**
      * ListElement constructor.
      * @param string $name
      * @param string $label
      * @param bool $sortable
      * @param bool $searchable
-     * @param string $type
      */
     public function __construct(
         string $name,
         string $label,
         bool $sortable = true,
-        bool $searchable = true,
-        string $type = "string"
+        bool $searchable = true
     ) {
         $this->name = $name;
         $this->label = $label;
         $this->sortable = $sortable;
         $this->searchable = $searchable;
-        $this->type = $type;
     }
 
     /**
@@ -102,7 +89,7 @@ final class ListElement implements ElementInterface
      */
     public function type(): string
     {
-        return $this->type;
+        return 'media';
     }
 
     /**
@@ -111,11 +98,12 @@ final class ListElement implements ElementInterface
     public function jsonSerialize()
     {
         return [
-            'name' => $this->name,
-            'label' => $this->label,
-            'sortable' => $this->sortable,
-            'searchable' => $this->searchable,
-            'type' => $this->type,
+            'name' => $this->name(),
+            'label' => $this->label(),
+            'sortable' => $this->sortable(),
+            'searchable' => $this->searchable(),
+            'type' => $this->type(),
+            'options' => [],
         ];
     }
 }
