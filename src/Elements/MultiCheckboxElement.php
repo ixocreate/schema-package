@@ -17,7 +17,7 @@ final class MultiCheckboxElement extends AbstractSingleElement
 
     public function type(): string
     {
-        return TypeInterface::TYPE_STRING;
+        return TypeInterface::TYPE_ARRAY;
     }
 
     public function inputType(): string
@@ -33,7 +33,7 @@ final class MultiCheckboxElement extends AbstractSingleElement
         return $this->options;
     }
 
-    public function withOptions(array $options): SelectElement
+    public function withOptions(array $options): MultiCheckboxElement
     {
         $element = clone $this;
         $element->options = $options;
