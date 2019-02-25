@@ -20,6 +20,11 @@ final class GroupElement extends AbstractGroup implements StructuralGroupingInte
     private $icon;
 
     /**
+     * @var string
+     */
+    private $nameExpression = "";
+
+    /**
      * @return string
      */
     public function inputType(): string
@@ -64,12 +69,33 @@ final class GroupElement extends AbstractGroup implements StructuralGroupingInte
     }
 
     /**
+     * @param string $nameExpression
+     * @return GroupElement
+     */
+    public function withNameExpression(string $nameExpression): GroupElement
+    {
+        $group = clone $this;
+        $group->nameExpression = $nameExpression;
+
+        return $group;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function nameExpression(): string
+    {
+        return $this->nameExpression;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
     {
         $array = parent::jsonSerialize();
         $array['icon'] = $this->icon();
+        $array['nameExpression'] = $this->nameExpression();
 
         return $array;
     }

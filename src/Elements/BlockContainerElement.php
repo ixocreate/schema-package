@@ -11,6 +11,7 @@ namespace Ixocreate\Schema\Elements;
 
 use Ixocreate\Cms\Block\BlockInterface;
 use Ixocreate\Cms\Block\BlockSubManager;
+use Ixocreate\Cms\Block\NameExpressionInterface;
 use Ixocreate\CommonTypes\Entity\BlockContainerType;
 use Ixocreate\Contract\Schema\ElementInterface;
 use Ixocreate\Contract\Schema\SchemaInterface;
@@ -158,9 +159,14 @@ final class BlockContainerElement extends AbstractGroup
 
         $schema = $blockObj->receiveSchema($this->builder);
 
+        /** @var GroupElement $group */
         $group = $this->builder->create(GroupElement::class, $block);
         $group = $group->withLabel($blockObj->label());
         $group = $group->withElements($schema->elements());
+
+        if ($blockObj instanceof NameExpressionInterface) {
+            $group = $group->withNameExpression($blockObj->nameExpression());
+        }
 
         return $this->withAddedElement($group);
     }
