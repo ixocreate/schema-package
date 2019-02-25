@@ -24,32 +24,16 @@ final class MediaElement implements ElementInterface
     private $label;
 
     /**
-     * @var bool
-     */
-    private $sortable;
-
-    /**
-     * @var bool
-     */
-    private $searchable;
-
-    /**
      * ListElement constructor.
      * @param string $name
      * @param string $label
-     * @param bool $sortable
-     * @param bool $searchable
      */
     public function __construct(
         string $name,
-        string $label,
-        bool $sortable = true,
-        bool $searchable = true
+        string $label
     ) {
         $this->name = $name;
         $this->label = $label;
-        $this->sortable = $sortable;
-        $this->searchable = $searchable;
     }
 
     /**
@@ -73,7 +57,7 @@ final class MediaElement implements ElementInterface
      */
     public function sortable(): bool
     {
-        return $this->sortable;
+        return false;
     }
 
     /**
@@ -81,7 +65,7 @@ final class MediaElement implements ElementInterface
      */
     public function searchable(): bool
     {
-        return $this->searchable;
+        return false;
     }
 
     /**
