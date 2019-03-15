@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
+use Ixocreate\Media\Type\VideoType;
+
 final class VideoElement extends AbstractSingleElement
 {
     public function type(): string
     {
-        return Video::class;
+        return VideoType::class;
     }
 
     public function inputType(): string
