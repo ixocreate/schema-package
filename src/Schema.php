@@ -52,10 +52,10 @@ final class Schema implements SchemaInterface, TransformableInterface
     }
 
     /**
-     * @param array $elements
+     * @param ElementInterface ...$elements
      * @return SchemaInterface
      */
-    public function withElements(array $elements): SchemaInterface
+    public function withElements(ElementInterface ...$elements): SchemaInterface
     {
         $schema = $this;
         foreach ($elements as $element) {
