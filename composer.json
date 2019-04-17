@@ -1,5 +1,5 @@
 {
-    "name": "ixocreate/schema",
+    "name": "ixocreate/schema-package",
     "description": "Schema implementation for IXOCREATE",
     "license": "MIT",
     "type": "library",
