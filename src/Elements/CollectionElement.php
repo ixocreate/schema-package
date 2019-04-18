@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Type\Entity\CollectionType;
-use Ixocreate\Schema\ElementInterface;
-use Ixocreate\Schema\SchemaInterface;
-use Ixocreate\Type\TransformableInterface;
-use Ixocreate\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
 use Ixocreate\Schema\Builder;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Type\Entity\CollectionType;
+use Ixocreate\Type\TransformableInterface;
+use Ixocreate\Type\TypeInterface;
 
 final class CollectionElement extends AbstractGroup implements TransformableInterface
 {
@@ -31,6 +31,7 @@ final class CollectionElement extends AbstractGroup implements TransformableInte
 
     /**
      * CollectionElement constructor.
+     *
      * @param Builder $builder
      */
     public function __construct(Builder $builder)

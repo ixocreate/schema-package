@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\Type\TypeInterface;
 use Ixocreate\Entity\Definition;
 use Ixocreate\Entity\DefinitionCollection;
-use Ixocreate\Entity\Type\TypeSubManager;
+use Ixocreate\Type\TypeSubManager;
 use Ixocreate\Schema\Elements\TextElement;
+use Ixocreate\Type\TypeInterface;
 
 final class Builder implements BuilderInterface
 {
@@ -29,6 +29,7 @@ final class Builder implements BuilderInterface
 
     /**
      * Builder constructor.
+     *
      * @param ElementSubManager $elementSubManager
      * @param TypeSubManager $typeSubManager
      */

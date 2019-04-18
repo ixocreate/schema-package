@@ -12,12 +12,12 @@ namespace Ixocreate\Schema\Elements;
 use Ixocreate\Cms\Block\BlockInterface;
 use Ixocreate\Cms\Block\BlockSubManager;
 use Ixocreate\Cms\Block\NameExpressionInterface;
-use Ixocreate\Type\Entity\BlockContainerType;
-use Ixocreate\Schema\ElementInterface;
-use Ixocreate\Schema\SchemaInterface;
-use Ixocreate\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
 use Ixocreate\Schema\Builder;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Type\Entity\BlockContainerType;
+use Ixocreate\Type\TypeInterface;
 
 final class BlockContainerElement extends AbstractGroup
 {
@@ -134,7 +134,10 @@ final class BlockContainerElement extends AbstractGroup
 
         foreach ($blocks as $blockName) {
             if (\mb_strpos($blockName, '*') === false) {
-                if (\array_key_exists($blockName, $this->blockSubManager->getServiceManagerConfig()->getNamedServices())) {
+                if (\array_key_exists(
+                    $blockName,
+                    $this->blockSubManager->getServiceManagerConfig()->getNamedServices()
+                )) {
                     $parsedBlocks[] = $blockName;
                 }
                 continue;

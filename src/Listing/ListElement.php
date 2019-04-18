@@ -11,6 +11,7 @@ namespace Ixocreate\Schema\Listing;
 
 /**
  * Class ListElement
+ *
  * @package Ixocreate\Schema\Listing
  * @deprecated
  */
@@ -43,6 +44,7 @@ final class ListElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      * @param bool $sortable

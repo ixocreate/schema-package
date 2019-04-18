@@ -11,6 +11,7 @@ namespace Ixocreate\Schema;
 
 /**
  * Interface SchemaReceiverInterface
+ *
  * @package Ixocreate\Schema\Package
  * @deprecated
  */

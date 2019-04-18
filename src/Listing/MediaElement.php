@@ -23,6 +23,7 @@ final class MediaElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      */

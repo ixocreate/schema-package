@@ -47,6 +47,7 @@ final class CheckboxElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      * @param bool $sortable

@@ -62,5 +62,5 @@ interface SchemaInterface extends \JsonSerializable
      * @return SchemaReceiverInterface|null
      * @deprecated
      */
-    public function schemaReceiver(): ? SchemaReceiverInterface;
+    public function schemaReceiver(): ?SchemaReceiverInterface;
 }

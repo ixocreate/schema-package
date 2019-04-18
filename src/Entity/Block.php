@@ -29,6 +29,7 @@ final class Block implements EntityInterface
 
     /**
      * Block constructor.
+     *
      * @param array $data
      * @param DefinitionCollection $definitionCollection
      * @param BlockInterface $block
@@ -43,7 +44,7 @@ final class Block implements EntityInterface
     /**
      * @return DefinitionCollection
      */
-    protected static function createDefinitions() : DefinitionCollection
+    protected static function createDefinitions(): DefinitionCollection
     {
         return self::$definitionCollection;
     }
@@ -52,7 +53,7 @@ final class Block implements EntityInterface
      * @param string $name
      * @param mixed $value
      */
-    private function setValue(string $name, $value) : void
+    private function setValue(string $name, $value): void
     {
         if ($value === null && self::getDefinitions()->get($name)->isNullAble()) {
             $this->schemaProperties[$name] = null;
@@ -77,7 +78,7 @@ final class Block implements EntityInterface
      * @param string $name
      * @return bool
      */
-    public function __isset(string $name) : bool
+    public function __isset(string $name): bool
     {
         return isset($this->schemaProperties[$name]);
     }
