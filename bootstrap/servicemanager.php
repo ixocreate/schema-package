@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Ixocreate\Schema;
+namespace Ixocreate\Package\Schema;
 
-use Ixocreate\Schema\AdditionalSchema\AdditionalSchemaSubManager;
+use Ixocreate\Package\Schema\AdditionalSchema\AdditionalSchemaSubManager;
 
 /** @var \Ixocreate\ServiceManager\ServiceManagerConfigurator $serviceManager */
 
