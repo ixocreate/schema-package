@@ -7,17 +7,17 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Cms\Package\Block\BlockInterface;
-use Ixocreate\Cms\Package\Block\BlockSubManager;
-use Ixocreate\Cms\Package\Block\NameExpressionInterface;
-use Ixocreate\Type\Package\Entity\BlockContainerType;
-use Ixocreate\Schema\Package\ElementInterface;
-use Ixocreate\Schema\Package\SchemaInterface;
-use Ixocreate\Type\Package\TypeInterface;
-use Ixocreate\Entity\Package\Type\Type;
-use Ixocreate\Schema\Package\Builder;
+use Ixocreate\Cms\Block\BlockInterface;
+use Ixocreate\Cms\Block\BlockSubManager;
+use Ixocreate\Cms\Block\NameExpressionInterface;
+use Ixocreate\Type\Entity\BlockContainerType;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Type\TypeInterface;
+use Ixocreate\Entity\Type\Type;
+use Ixocreate\Schema\Builder;
 
 final class BlockContainerElement extends AbstractGroup
 {

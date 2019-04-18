@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Entity;
+namespace Ixocreate\Schema\Entity;
 
-use Ixocreate\Entity\Package\DefinitionCollection;
-use Ixocreate\Entity\Package\EntityInterface;
-use Ixocreate\Entity\Package\EntityTrait;
-use Ixocreate\Entity\Package\Exception\InvalidPropertyException;
-use Ixocreate\Entity\Package\Type\Type;
+use Ixocreate\Entity\DefinitionCollection;
+use Ixocreate\Entity\EntityInterface;
+use Ixocreate\Entity\EntityTrait;
+use Ixocreate\Entity\Exception\InvalidPropertyException;
+use Ixocreate\Entity\Type\Type;
 
 final class Schema implements EntityInterface
 {

@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package;
+namespace Ixocreate\Schema;
 
 interface ElementProviderInterface
 {

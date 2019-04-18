@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package;
+namespace Ixocreate\Schema;
 
-use Ixocreate\Type\Package\TypeInterface;
-use Ixocreate\Entity\Package\Definition;
-use Ixocreate\Entity\Package\DefinitionCollection;
-use Ixocreate\Entity\Package\Type\TypeSubManager;
-use Ixocreate\Schema\Package\Elements\TextElement;
+use Ixocreate\Type\TypeInterface;
+use Ixocreate\Entity\Definition;
+use Ixocreate\Entity\DefinitionCollection;
+use Ixocreate\Entity\Type\TypeSubManager;
+use Ixocreate\Schema\Elements\TextElement;
 
 final class Builder implements BuilderInterface
 {

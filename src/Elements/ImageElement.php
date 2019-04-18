@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Media\Package\Type\ImageType;
+use Ixocreate\Media\Type\ImageType;
 
 final class ImageElement extends AbstractSingleElement
 {

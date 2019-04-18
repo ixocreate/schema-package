@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package;
+namespace Ixocreate\Schema;
 
 use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\PackageInterface;
 use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Schema\Package\Bootstrap\SchemaElementBootstrapItem;
+use Ixocreate\Schema\Bootstrap\SchemaElementBootstrapItem;
 
 final class Package implements PackageInterface
 {

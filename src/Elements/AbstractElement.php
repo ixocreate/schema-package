@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Schema\Package\ElementInterface;
+use Ixocreate\Schema\ElementInterface;
 
 abstract class AbstractElement implements ElementInterface
 {

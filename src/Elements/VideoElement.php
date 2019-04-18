@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Media\Package\Type\VideoType;
+use Ixocreate\Media\Type\VideoType;
 
 final class VideoElement extends AbstractSingleElement
 {

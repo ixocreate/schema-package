@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Type\Package\Entity\HtmlType;
+use Ixocreate\Type\Entity\HtmlType;
 
 final class HtmlElement extends AbstractSingleElement
 {

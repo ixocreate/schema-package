@@ -7,10 +7,10 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Schema\Package\ElementInterface;
-use Ixocreate\Schema\Package\SingleElementInterface;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SingleElementInterface;
 
 abstract class AbstractSingleElement extends AbstractElement implements SingleElementInterface
 {

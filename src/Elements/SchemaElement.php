@@ -7,10 +7,10 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Type\Package\Entity\SchemaType;
-use Ixocreate\Schema\Package\StructuralGroupingInterface;
+use Ixocreate\Type\Entity\SchemaType;
+use Ixocreate\Schema\StructuralGroupingInterface;
 
 final class SchemaElement extends AbstractGroup implements StructuralGroupingInterface
 {

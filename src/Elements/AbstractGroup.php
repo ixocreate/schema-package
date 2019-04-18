@@ -7,17 +7,17 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Elements;
+namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Type\Package\Entity\SchemaType;
-use Ixocreate\Schema\Package\ElementInterface;
-use Ixocreate\Schema\Package\GroupInterface;
-use Ixocreate\Schema\Package\SchemaInterface;
-use Ixocreate\Schema\Package\SchemaReceiverInterface;
-use Ixocreate\Schema\Package\StructuralGroupingInterface;
-use Ixocreate\Type\Package\TransformableInterface;
-use Ixocreate\Type\Package\TypeInterface;
-use Ixocreate\Entity\Package\Type\Type;
+use Ixocreate\Type\Entity\SchemaType;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\GroupInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Schema\SchemaReceiverInterface;
+use Ixocreate\Schema\StructuralGroupingInterface;
+use Ixocreate\Type\TransformableInterface;
+use Ixocreate\Type\TypeInterface;
+use Ixocreate\Entity\Type\Type;
 
 abstract class AbstractGroup extends AbstractElement implements GroupInterface, TransformableInterface
 {

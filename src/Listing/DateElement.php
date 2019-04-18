@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\Package\Listing;
+namespace Ixocreate\Schema\Listing;
 
 final class DateElement implements ElementInterface
 {
