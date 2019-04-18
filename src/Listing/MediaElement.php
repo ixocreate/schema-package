@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Package\Listing;
 
-use Ixocreate\Schema\Package\Listing\ElementInterface;
-
 final class MediaElement implements ElementInterface
 {
     /**

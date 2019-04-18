@@ -9,13 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Package;
 
-use Ixocreate\Schema\Package\BuilderInterface;
-use Ixocreate\Schema\Package\ElementInterface;
-use Ixocreate\Schema\Package\ElementProviderInterface;
-use Ixocreate\Schema\Package\GroupInterface;
 use Ixocreate\Type\Package\TypeInterface;
-use Ixocreate\Entity\Package\Entity\Definition;
-use Ixocreate\Entity\Package\Entity\DefinitionCollection;
+use Ixocreate\Entity\Package\Definition;
+use Ixocreate\Entity\Package\DefinitionCollection;
 use Ixocreate\Entity\Package\Type\TypeSubManager;
 use Ixocreate\Schema\Package\Elements\TextElement;
 

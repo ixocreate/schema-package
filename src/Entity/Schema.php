@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Package\Entity;
 
-use Ixocreate\Entity\Package\Entity\DefinitionCollection;
-use Ixocreate\Entity\Package\Entity\EntityInterface;
-use Ixocreate\Entity\Package\Entity\EntityTrait;
+use Ixocreate\Entity\Package\DefinitionCollection;
+use Ixocreate\Entity\Package\EntityInterface;
+use Ixocreate\Entity\Package\EntityTrait;
 use Ixocreate\Entity\Package\Exception\InvalidPropertyException;
 use Ixocreate\Entity\Package\Type\Type;
 

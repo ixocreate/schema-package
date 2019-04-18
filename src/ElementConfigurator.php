@@ -9,11 +9,10 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Package;
 
-use Ixocreate\Application\ConfiguratorInterface;
-use Ixocreate\Application\ServiceRegistryInterface;
-use Ixocreate\Schema\Package\ElementInterface;
+use Ixocreate\Application\Service\Configurator\ConfiguratorInterface;
+use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;
-use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
+use Ixocreate\Application\Service\SubManagerConfigurator;
 
 final class ElementConfigurator implements ConfiguratorInterface
 {

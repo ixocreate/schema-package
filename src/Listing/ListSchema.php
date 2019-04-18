@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Package\Listing;
 
-use Ixocreate\Schema\Package\Listing\ElementInterface;
-use Ixocreate\Schema\Package\Listing\ListSchemaInterface;
-
 final class ListSchema implements ListSchemaInterface
 {
     /**
