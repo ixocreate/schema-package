@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Media\Type\MediaType;
+use Ixocreate\Media\Package\Type\MediaType;
 
 final class MediaElement extends AbstractSingleElement
 {

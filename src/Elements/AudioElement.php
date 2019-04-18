@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Media\Type\AudioType;
+use Ixocreate\Media\Package\Type\AudioType;
 
 final class AudioElement extends AbstractSingleElement
 {

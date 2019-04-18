@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Listing;
+namespace Ixocreate\Schema\Package\Listing;
 
-use Ixocreate\Package\Schema\Listing\ElementInterface;
+use Ixocreate\Schema\Package\Listing\ElementInterface;
 
 /**
  * Class ListElement
- * @package Ixocreate\Package\Schema\Listing
+ * @package Ixocreate\Schema\Package\Listing
  * @deprecated
  */
 final class ListElement implements ElementInterface

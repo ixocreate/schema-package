@@ -7,15 +7,15 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Type\Entity\CollectionType;
-use Ixocreate\Package\Schema\ElementInterface;
-use Ixocreate\Package\Schema\SchemaInterface;
-use Ixocreate\Package\Type\TransformableInterface;
-use Ixocreate\Package\Type\TypeInterface;
-use Ixocreate\Package\Entity\Type\Type;
-use Ixocreate\Package\Schema\Builder;
+use Ixocreate\Type\Package\Entity\CollectionType;
+use Ixocreate\Schema\Package\ElementInterface;
+use Ixocreate\Schema\Package\SchemaInterface;
+use Ixocreate\Type\Package\TransformableInterface;
+use Ixocreate\Type\Package\TypeInterface;
+use Ixocreate\Entity\Package\Type\Type;
+use Ixocreate\Schema\Package\Builder;
 
 final class CollectionElement extends AbstractGroup implements TransformableInterface
 {

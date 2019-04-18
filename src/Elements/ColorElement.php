@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Type\Entity\ColorType;
+use Ixocreate\Type\Package\Entity\ColorType;
 
 final class ColorElement extends AbstractSingleElement
 {

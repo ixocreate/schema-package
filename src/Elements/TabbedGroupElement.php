@@ -7,12 +7,12 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Type\Entity\SchemaType;
-use Ixocreate\Package\Schema\ElementInterface;
-use Ixocreate\Package\Schema\SchemaInterface;
-use Ixocreate\Package\Schema\StructuralGroupingInterface;
+use Ixocreate\Type\Package\Entity\SchemaType;
+use Ixocreate\Schema\Package\ElementInterface;
+use Ixocreate\Schema\Package\SchemaInterface;
+use Ixocreate\Schema\Package\StructuralGroupingInterface;
 
 final class TabbedGroupElement extends AbstractGroup implements StructuralGroupingInterface
 {

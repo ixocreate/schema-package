@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema;
+namespace Ixocreate\Schema\Package;
 
 interface SchemaAwareInterface
 {

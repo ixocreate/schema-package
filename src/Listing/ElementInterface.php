@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Listing;
+namespace Ixocreate\Schema\Package\Listing;
 
 interface ElementInterface extends \JsonSerializable
 {

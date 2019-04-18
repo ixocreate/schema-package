@@ -7,16 +7,16 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema;
+namespace Ixocreate\Schema\Package;
 
-use Ixocreate\Package\Type\Entity\SchemaType;
-use Ixocreate\Package\Schema\ElementInterface;
-use Ixocreate\Package\Schema\SchemaInterface;
-use Ixocreate\Package\Schema\SchemaReceiverInterface;
-use Ixocreate\Package\Schema\StructuralGroupingInterface;
-use Ixocreate\Package\Type\TransformableInterface;
-use Ixocreate\Package\Type\TypeInterface;
-use Ixocreate\Package\Entity\Type\Type;
+use Ixocreate\Type\Package\Entity\SchemaType;
+use Ixocreate\Schema\Package\ElementInterface;
+use Ixocreate\Schema\Package\SchemaInterface;
+use Ixocreate\Schema\Package\SchemaReceiverInterface;
+use Ixocreate\Schema\Package\StructuralGroupingInterface;
+use Ixocreate\Type\Package\TransformableInterface;
+use Ixocreate\Type\Package\TypeInterface;
+use Ixocreate\Entity\Package\Type\Type;
 
 final class Schema implements SchemaInterface, TransformableInterface
 {

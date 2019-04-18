@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Media\Type\DocumentType;
+use Ixocreate\Media\Package\Type\DocumentType;
 
 final class DocumentElement extends AbstractSingleElement
 {

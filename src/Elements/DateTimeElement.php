@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\Elements;
+namespace Ixocreate\Schema\Package\Elements;
 
-use Ixocreate\Package\Type\Entity\DateTimeType;
+use Ixocreate\Type\Package\Entity\DateTimeType;
 
 final class DateTimeElement extends AbstractSingleElement
 {

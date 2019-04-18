@@ -7,11 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema;
+namespace Ixocreate\Schema\Package;
 
 /**
  * Interface SchemaReceiverInterface
- * @package Ixocreate\Package\Schema
+ * @package Ixocreate\Schema\Package
  * @deprecated
  */
 interface SchemaReceiverInterface

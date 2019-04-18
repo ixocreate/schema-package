@@ -7,11 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Schema\BootstrapItem;
+namespace Ixocreate\Schema\Package\BootstrapItem;
 
-use Ixocreate\Application\BootstrapItemInterface;
+use Ixocreate\Application\Bootstrap\BootstrapItemInterface;
 use Ixocreate\Application\ConfiguratorInterface;
-use Ixocreate\Package\Schema\ElementConfigurator;
+use Ixocreate\Schema\Package\ElementConfigurator;
 
 final class SchemaElementBootstrapItem implements BootstrapItemInterface
 {
