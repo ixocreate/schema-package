@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\LinkType;
+use Ixocreate\Type\Entity\LinkType;
 
 final class LinkElement extends AbstractSingleElement
 {

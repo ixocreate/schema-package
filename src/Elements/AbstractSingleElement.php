@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Contract\Schema\ElementInterface;
-use Ixocreate\Contract\Schema\SingleElementInterface;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SingleElementInterface;
 
 abstract class AbstractSingleElement extends AbstractElement implements SingleElementInterface
 {

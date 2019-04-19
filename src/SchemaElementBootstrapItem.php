@@ -7,11 +7,10 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Schema\BootstrapItem;
+namespace Ixocreate\Schema;
 
-use Ixocreate\Contract\Application\BootstrapItemInterface;
-use Ixocreate\Contract\Application\ConfiguratorInterface;
-use Ixocreate\Schema\ElementConfigurator;
+use Ixocreate\Application\Bootstrap\BootstrapItemInterface;
+use Ixocreate\Application\Configurator\ConfiguratorInterface;
 
 final class SchemaElementBootstrapItem implements BootstrapItemInterface
 {
@@ -20,7 +19,7 @@ final class SchemaElementBootstrapItem implements BootstrapItemInterface
      */
     public function getConfigurator(): ConfiguratorInterface
     {
-        return new ElementConfigurator();
+        return new SchemaElementConfigurator();
     }
 
     /**
@@ -36,6 +35,6 @@ final class SchemaElementBootstrapItem implements BootstrapItemInterface
      */
     public function getFileName(): string
     {
-        return 'schema_element.php';
+        return 'schema-element.php';
     }
 }

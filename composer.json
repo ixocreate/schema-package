@@ -1,6 +1,6 @@
 {
     "name": "ixocreate/schema-package",
-    "description": "Schema implementation for IXOCREATE",
+    "description": "IXOCREATE Schema Package",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -12,11 +12,10 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "ixocreate/schema-contract": "dev-develop",
-        "ixocreate/entity": "dev-develop"
+        "ixocreate/application": "^0.1"
     },
     "require-dev": {
-        "ixocreate/coding-standard": "^1.0.1",
+        "ixocreate/coding-standard": "^1.0",
         "php-coveralls/php-coveralls": "^2.1",
         "phpunit/phpunit": "^7.0"
     },
@@ -27,8 +26,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "IxocreateMisc\\Schema\\": "tests/misc/",
-            "IxocreateTest\\Schema\\": "tests/src/"
+            "Ixocreate\\Misc\\Schema\\": "tests/misc/",
+            "Ixocreate\\Test\\Schema\\": "tests/src/"
         }
     },
     "scripts": {

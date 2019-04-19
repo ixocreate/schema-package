@@ -9,15 +9,15 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\SchemaType;
-use Ixocreate\Contract\Schema\ElementInterface;
-use Ixocreate\Contract\Schema\GroupInterface;
-use Ixocreate\Contract\Schema\SchemaInterface;
-use Ixocreate\Contract\Schema\SchemaReceiverInterface;
-use Ixocreate\Contract\Schema\StructuralGroupingInterface;
-use Ixocreate\Contract\Type\TransformableInterface;
-use Ixocreate\Contract\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\GroupInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Schema\SchemaReceiverInterface;
+use Ixocreate\Schema\StructuralGroupingInterface;
+use Ixocreate\Type\Entity\SchemaType;
+use Ixocreate\Type\TransformableInterface;
+use Ixocreate\Type\TypeInterface;
 
 abstract class AbstractGroup extends AbstractElement implements GroupInterface, TransformableInterface
 {
@@ -144,7 +144,7 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
         return $group;
     }
 
-    public function schemaReceiver(): ? SchemaReceiverInterface
+    public function schemaReceiver(): ?SchemaReceiverInterface
     {
         return $this->schemaReceiver;
     }

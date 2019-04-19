@@ -9,14 +9,10 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\CommonTypes\Entity\SchemaType;
-use Ixocreate\Contract\Schema\ElementInterface;
-use Ixocreate\Contract\Schema\SchemaInterface;
-use Ixocreate\Contract\Schema\SchemaReceiverInterface;
-use Ixocreate\Contract\Schema\StructuralGroupingInterface;
-use Ixocreate\Contract\Type\TransformableInterface;
-use Ixocreate\Contract\Type\TypeInterface;
 use Ixocreate\Entity\Type\Type;
+use Ixocreate\Type\Entity\SchemaType;
+use Ixocreate\Type\TransformableInterface;
+use Ixocreate\Type\TypeInterface;
 
 final class Schema implements SchemaInterface, TransformableInterface
 {
@@ -32,6 +28,7 @@ final class Schema implements SchemaInterface, TransformableInterface
 
     /**
      * Schema constructor.
+     *
      * @param SchemaReceiverInterface|null $schemaReceiver
      */
     public function __construct(SchemaReceiverInterface $schemaReceiver = null)
@@ -133,7 +130,7 @@ final class Schema implements SchemaInterface, TransformableInterface
         return Type::create($data, SchemaType::class, ['schema' => $this]);
     }
 
-    public function schemaReceiver(): ? SchemaReceiverInterface
+    public function schemaReceiver(): ?SchemaReceiverInterface
     {
         return $this->schemaReceiver;
     }

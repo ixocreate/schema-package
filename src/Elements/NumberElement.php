@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Contract\Type\TypeInterface;
+use Ixocreate\Type\TypeInterface;
 
 final class NumberElement extends AbstractSingleElement
 {

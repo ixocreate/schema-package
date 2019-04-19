@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\MapType;
+use Ixocreate\Type\Entity\MapType;
 
 final class MapElement extends AbstractSingleElement
 {

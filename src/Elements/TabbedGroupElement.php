@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\SchemaType;
-use Ixocreate\Contract\Schema\ElementInterface;
-use Ixocreate\Contract\Schema\SchemaInterface;
-use Ixocreate\Contract\Schema\StructuralGroupingInterface;
+use Ixocreate\Schema\ElementInterface;
+use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\Schema\StructuralGroupingInterface;
+use Ixocreate\Type\Entity\SchemaType;
 
 final class TabbedGroupElement extends AbstractGroup implements StructuralGroupingInterface
 {

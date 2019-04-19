@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Listing;
 
-use Ixocreate\Contract\Schema\Listing\ElementInterface;
-
 final class CheckboxElement implements ElementInterface
 {
     /**
@@ -49,6 +47,7 @@ final class CheckboxElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      * @param bool $sortable
