@@ -11,9 +11,9 @@ namespace Ixocreate\Schema;
 
 use Ixocreate\Entity\Definition;
 use Ixocreate\Entity\DefinitionCollection;
-use Ixocreate\Type\TypeSubManager;
 use Ixocreate\Schema\Elements\TextElement;
 use Ixocreate\Type\TypeInterface;
+use Ixocreate\Type\TypeSubManager;
 
 final class Builder implements BuilderInterface
 {
