@@ -14,6 +14,8 @@
     },
     "require-dev": {
         "ixocreate/coding-standard": "^2.0",
+        "ixocreate/entity-package": "^0.1",
+        "ixocreate/type-package": "^0.1",
         "php-coveralls/php-coveralls": "^2.1",
         "phpunit/phpunit": "^7.0"
     },
