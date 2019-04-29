@@ -65,6 +65,7 @@ final class Schema implements SchemaInterface, TransformableInterface
     /**
      * @param ElementInterface $element
      * @return SchemaInterface
+     * @deprecated
      */
     public function withAddedElement(ElementInterface $element): SchemaInterface
     {

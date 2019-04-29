@@ -25,12 +25,6 @@ interface SchemaInterface extends \JsonSerializable
     public function withElements(ElementInterface ...$elements): SchemaInterface;
 
     /**
-     * @param ElementInterface $element
-     * @return SchemaInterface
-     */
-    public function withAddedElement(ElementInterface $element): SchemaInterface;
-
-    /**
      * @return ElementInterface[]
      */
     public function elements(): array;
