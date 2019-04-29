@@ -1,17 +1,17 @@
-# IXOCREATE schema
+# IXOCREATE Schema Package
 
-[![Build Status](https://travis-ci.com/ixocreate/schema.svg?branch=master)](https://travis-ci.com/ixocreate/schema)
-[![Coverage Status](https://coveralls.io/repos/github/ixocreate/schema/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/schema?branch=develop)
-[![Packagist](https://img.shields.io/packagist/v/ixocreate/schema.svg)](https://packagist.org/packages/ixocreate/schema)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/schema.svg)](https://packagist.org/packages/ixocreate/schema)
-[![Packagist](https://img.shields.io/packagist/l/ixocreate/schema.svg)](https://packagist.org/packages/ixocreate/schema)
+[![Build Status](https://travis-ci.com/ixocreate/schema-package.svg?branch=master)](https://travis-ci.com/ixocreate/schema-package)
+[![Coverage Status](https://coveralls.io/repos/github/ixocreate/schema-package/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/schema-package?branch=develop)
+[![Packagist](https://img.shields.io/packagist/v/ixocreate/schema-package.svg)](https://packagist.org/packages/ixocreate/schema-package)
+[![PHP Version](https://img.shields.io/packagist/php-v/ixocreate/schema-package.svg)](https://packagist.org/packages/ixocreate/schema-package)
+[![License](https://img.shields.io/github/license/ixocreate/schema-package.svg)](LICENSE)
 
 ## Installation
 
 Install the package via composer:
 
 ```sh
-composer require ixocreate/schema
+composer require ixocreate/schema-package
 ```
 
 ## Testing
@@ -20,6 +20,18 @@ composer require ixocreate/schema
 composer install --dev
 phpunit
 ```
+
+## Documentation
+
+Learn more about IXOCREATE by reading its [Documentation](https://ixocreate.github.io/).
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Security Vulnerabilities
+
+If you discover security vulnerabilities, please address issues directly to opensource@ixocreate.com via e-mail.
 
 ## License
 

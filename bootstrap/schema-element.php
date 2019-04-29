@@ -1,8 +1,15 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
+
 namespace Ixocreate\Schema;
 
-/** @var ElementConfigurator $element */
-use Ixocreate\Schema\Elements\DocumentElement;
+/** @var SchemaElementConfigurator $element */
 use Ixocreate\Schema\Elements\AudioElement;
 use Ixocreate\Schema\Elements\BlockContainerElement;
 use Ixocreate\Schema\Elements\CheckboxElement;
@@ -10,6 +17,7 @@ use Ixocreate\Schema\Elements\CollectionElement;
 use Ixocreate\Schema\Elements\ColorElement;
 use Ixocreate\Schema\Elements\DateElement;
 use Ixocreate\Schema\Elements\DateTimeElement;
+use Ixocreate\Schema\Elements\DocumentElement;
 use Ixocreate\Schema\Elements\GroupElement;
 use Ixocreate\Schema\Elements\HtmlElement;
 use Ixocreate\Schema\Elements\ImageElement;

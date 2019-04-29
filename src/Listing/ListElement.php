@@ -9,10 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Listing;
 
-use Ixocreate\Contract\Schema\Listing\ElementInterface;
-
 /**
  * Class ListElement
+ *
  * @package Ixocreate\Schema\Listing
  * @deprecated
  */
@@ -45,6 +44,7 @@ final class ListElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      * @param bool $sortable

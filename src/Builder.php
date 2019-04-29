@@ -9,15 +9,11 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\Contract\Schema\BuilderInterface;
-use Ixocreate\Contract\Schema\ElementInterface;
-use Ixocreate\Contract\Schema\ElementProviderInterface;
-use Ixocreate\Contract\Schema\GroupInterface;
-use Ixocreate\Contract\Type\TypeInterface;
-use Ixocreate\Entity\Entity\Definition;
-use Ixocreate\Entity\Entity\DefinitionCollection;
-use Ixocreate\Entity\Type\TypeSubManager;
+use Ixocreate\Entity\Definition;
+use Ixocreate\Entity\DefinitionCollection;
 use Ixocreate\Schema\Elements\TextElement;
+use Ixocreate\Type\TypeInterface;
+use Ixocreate\Type\TypeSubManager;
 
 final class Builder implements BuilderInterface
 {
@@ -33,6 +29,7 @@ final class Builder implements BuilderInterface
 
     /**
      * Builder constructor.
+     *
      * @param ElementSubManager $elementSubManager
      * @param TypeSubManager $typeSubManager
      */

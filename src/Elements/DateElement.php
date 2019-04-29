@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\DateType;
+use Ixocreate\Type\Entity\DateType;
 
 final class DateElement extends AbstractSingleElement
 {

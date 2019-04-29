@@ -9,13 +9,12 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\Contract\Application\ConfiguratorInterface;
-use Ixocreate\Contract\Application\ServiceRegistryInterface;
-use Ixocreate\Contract\Schema\ElementInterface;
+use Ixocreate\Application\Configurator\ConfiguratorInterface;
+use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Application\Service\SubManagerConfigurator;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;
-use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
 
-final class ElementConfigurator implements ConfiguratorInterface
+final class SchemaElementConfigurator implements ConfiguratorInterface
 {
     /**
      * @var SubManagerConfigurator

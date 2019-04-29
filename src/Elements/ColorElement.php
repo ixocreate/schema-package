@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\ColorType;
+use Ixocreate\Type\Entity\ColorType;
 
 final class ColorElement extends AbstractSingleElement
 {

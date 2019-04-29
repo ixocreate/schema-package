@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\PriceType;
+use Ixocreate\Type\Entity\PriceType;
 
 final class PriceElement extends AbstractSingleElement
 {

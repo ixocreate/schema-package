@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\CommonTypes\Entity\YouTubeType;
+use Ixocreate\Type\Entity\YouTubeType;
 
 final class YouTubeElement extends AbstractSingleElement
 {

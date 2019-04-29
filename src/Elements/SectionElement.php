@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Elements;
 
-use Ixocreate\Contract\Type\TypeInterface;
-use Ixocreate\Contract\Schema\StructuralGroupingInterface;
+use Ixocreate\Schema\StructuralGroupingInterface;
+use Ixocreate\Type\TypeInterface;
 
 final class SectionElement extends AbstractGroup implements StructuralGroupingInterface
 {

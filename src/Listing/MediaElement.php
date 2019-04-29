@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Listing;
 
-use Ixocreate\Contract\Schema\Listing\ElementInterface;
-
 final class MediaElement implements ElementInterface
 {
     /**
@@ -25,6 +23,7 @@ final class MediaElement implements ElementInterface
 
     /**
      * ListElement constructor.
+     *
      * @param string $name
      * @param string $label
      */
