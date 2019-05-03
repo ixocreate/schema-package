@@ -12,6 +12,10 @@ namespace Ixocreate\Schema;
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Package\PackageInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Schema\Element\ElementBootstrapItem;
+use Ixocreate\Schema\Type\Type;
+use Ixocreate\Schema\Type\TypeBootstrapItem;
+use Ixocreate\Schema\Type\TypeSubManager;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 
 final class Package implements PackageInterface
@@ -36,7 +40,8 @@ final class Package implements PackageInterface
     public function getBootstrapItems(): ?array
     {
         return [
-            SchemaElementBootstrapItem::class,
+            TypeBootstrapItem::class,
+            ElementBootstrapItem::class,
         ];
     }
 
@@ -51,8 +56,13 @@ final class Package implements PackageInterface
     /**
      * @param ServiceManagerInterface $serviceManager
      */
+
+    /**
+     * @param ServiceManagerInterface $serviceManager
+     */
     public function boot(ServiceManagerInterface $serviceManager): void
     {
+        Type::initialize($serviceManager->get(TypeSubManager::class));
     }
 
     /**
