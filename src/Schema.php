@@ -56,7 +56,7 @@ final class Schema implements SchemaInterface, TransformableInterface
     {
         $schema = $this;
         foreach ($elements as $element) {
-            $schema = $schema->withAddedElement($element);
+            $schema = $schema->withElement($element);
         }
 
         return $schema;
@@ -65,9 +65,18 @@ final class Schema implements SchemaInterface, TransformableInterface
     /**
      * @param ElementInterface $element
      * @return SchemaInterface
-     * @deprecated
+     * @deprecated use SchemaInterface::withElements(ElementInterface ...$elements)
      */
     public function withAddedElement(ElementInterface $element): SchemaInterface
+    {
+        return $this->withElement($element);
+    }
+
+    /**
+     * @param ElementInterface $element
+     * @return SchemaInterface
+     */
+    private function withElement(ElementInterface $element): SchemaInterface
     {
         $schema = clone $this;
         $schema->elements[$element->name()] = $element;
