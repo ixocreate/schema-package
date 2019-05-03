@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
+use Ixocreate\Schema\Element\ElementInterface;
+
 interface SchemaInterface extends \JsonSerializable
 {
     /**

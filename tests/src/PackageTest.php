@@ -11,8 +11,9 @@ namespace Ixocreate\Test\Schema;
 
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Schema\Element\ElementBootstrapItem;
 use Ixocreate\Schema\Package;
-use Ixocreate\Schema\SchemaElementBootstrapItem;
+use Ixocreate\Schema\Type\TypeBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -32,7 +33,10 @@ class PackageTest extends TestCase
         $package->addServices($serviceRegistry);
         $package->boot($serviceManager);
 
-        $this->assertSame([SchemaElementBootstrapItem::class], $package->getBootstrapItems());
+        $this->assertSame([
+            TypeBootstrapItem::class,
+            ElementBootstrapItem::class,
+        ], $package->getBootstrapItems());
         $this->assertNull($package->getConfigDirectory());
         $this->assertNull($package->getConfigProvider());
         $this->assertNull($package->getDependencies());

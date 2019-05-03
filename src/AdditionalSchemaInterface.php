@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
+use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\ServiceManager\NamedServiceInterface;
 
 interface AdditionalSchemaInterface extends NamedServiceInterface

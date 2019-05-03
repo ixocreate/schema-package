@@ -13,8 +13,11 @@ use Ixocreate\Entity\DefinitionCollection;
 use Ixocreate\Entity\EntityInterface;
 use Ixocreate\Entity\EntityTrait;
 use Ixocreate\Entity\Exception\InvalidPropertyException;
-use Ixocreate\Entity\Type\Type;
+use Ixocreate\Schema\Type\Type;
 
+/**
+ * TODO: remove this as it's just a temporary construct - schema should have no dependencies on entity
+ */
 final class Schema implements EntityInterface
 {
     use EntityTrait;
