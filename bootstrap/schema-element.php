@@ -1,37 +1,38 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-/** @var SchemaElementConfigurator $element */
+use Ixocreate\Schema\Element\CheckboxElement;
+use Ixocreate\Schema\Element\CollectionElement;
+use Ixocreate\Schema\Element\ColorElement;
+use Ixocreate\Schema\Element\DateElement;
+use Ixocreate\Schema\Element\DateTimeElement;
+use Ixocreate\Schema\Element\ElementConfigurator;
+use Ixocreate\Schema\Element\GroupElement;
+use Ixocreate\Schema\Element\HtmlElement;
+use Ixocreate\Schema\Element\LinkElement;
+use Ixocreate\Schema\Element\MapElement;
+use Ixocreate\Schema\Element\MultiCheckboxElement;
+use Ixocreate\Schema\Element\MultiSelectElement;
+use Ixocreate\Schema\Element\NumberElement;
+use Ixocreate\Schema\Element\PriceElement;
+use Ixocreate\Schema\Element\RadioElement;
+use Ixocreate\Schema\Element\SchemaElement;
+use Ixocreate\Schema\Element\SectionElement;
+use Ixocreate\Schema\Element\SelectElement;
+use Ixocreate\Schema\Element\TabbedGroupElement;
+use Ixocreate\Schema\Element\TextareaElement;
+use Ixocreate\Schema\Element\TextElement;
+use Ixocreate\Schema\Element\YouTubeElement;
 
-use Ixocreate\Schema\Elements\AudioElement;
-use Ixocreate\Schema\Elements\BlockContainerElement;
-use Ixocreate\Schema\Elements\CheckboxElement;
-use Ixocreate\Schema\Elements\CollectionElement;
-use Ixocreate\Schema\Elements\ColorElement;
-use Ixocreate\Schema\Elements\DateElement;
-use Ixocreate\Schema\Elements\DateTimeElement;
-use Ixocreate\Schema\Elements\DocumentElement;
-use Ixocreate\Schema\Elements\GroupElement;
-use Ixocreate\Schema\Elements\HtmlElement;
-use Ixocreate\Schema\Elements\ImageElement;
-use Ixocreate\Schema\Elements\LinkElement;
-use Ixocreate\Schema\Elements\MapElement;
-use Ixocreate\Schema\Elements\MediaElement;
-use Ixocreate\Schema\Elements\MultiCheckboxElement;
-use Ixocreate\Schema\Elements\MultiSelectElement;
-use Ixocreate\Schema\Elements\NumberElement;
-use Ixocreate\Schema\Elements\PriceElement;
-use Ixocreate\Schema\Elements\RadioElement;
-use Ixocreate\Schema\Elements\SchemaElement;
-use Ixocreate\Schema\Elements\SectionElement;
-use Ixocreate\Schema\Elements\SelectElement;
-use Ixocreate\Schema\Elements\TabbedGroupElement;
-use Ixocreate\Schema\Elements\TextareaElement;
-use Ixocreate\Schema\Elements\TextElement;
-use Ixocreate\Schema\Elements\VideoElement;
-use Ixocreate\Schema\Elements\YouTubeElement;
-
+/** @var ElementConfigurator $element */
 $element->addElement(SchemaElement::class);
 $element->addElement(TextElement::class);
 $element->addElement(TextareaElement::class);
@@ -40,7 +41,6 @@ $element->addElement(MultiSelectElement::class);
 $element->addElement(RadioElement::class);
 $element->addElement(NumberElement::class);
 $element->addElement(MultiCheckboxElement::class);
-$element->addElement(ImageElement::class);
 $element->addElement(DateTimeElement::class);
 $element->addElement(DateElement::class);
 $element->addElement(ColorElement::class);
@@ -51,12 +51,6 @@ $element->addElement(HtmlElement::class);
 $element->addElement(YouTubeElement::class);
 $element->addElement(PriceElement::class);
 $element->addElement(MapElement::class);
-$element->addElement(BlockContainerElement::class);
 $element->addElement(TabbedGroupElement::class);
 $element->addElement(CollectionElement::class);
 $element->addElement(CheckboxElement::class);
-$element->addElement(DocumentElement::class);
-$element->addElement(MediaElement::class);
-$element->addElement(DocumentElement::class);
-$element->addElement(AudioElement::class);
-$element->addElement(VideoElement::class);
