@@ -83,10 +83,10 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
     }
 
     /**
-     * @param ElementInterface ...$elements
+     * @param array $elements
      * @return SchemaInterface
      */
-    public function withElements(ElementInterface ...$elements): SchemaInterface
+    public function withElements(array $elements): SchemaInterface
     {
         $group = $this;
         foreach ($elements as $element) {
@@ -111,10 +111,10 @@ abstract class AbstractGroup extends AbstractElement implements GroupInterface, 
      */
     public function withAddedElement(ElementInterface $element): SchemaInterface
     {
-        $group = clone $this;
-        $group->elements[$element->name()] = $element;
+        $schema = clone $this;
+        $schema->elements[$element->name()] = $element;
 
-        return $group;
+        return $schema;
     }
 
     /**
