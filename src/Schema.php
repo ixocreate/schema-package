@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Schema;
 
 use Ixocreate\Schema\Element\ElementInterface;
+use Ixocreate\Schema\Element\StructuralGroupingInterface;
 use Ixocreate\Schema\Type\SchemaType;
 use Ixocreate\Schema\Type\TransformableInterface;
 use Ixocreate\Schema\Type\Type;
