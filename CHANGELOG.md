@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.1.0...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.0...develop)
+
+## [v0.2.0 (2019-05-06)](https://github.com/ixocreate/schema-package/compare/0.1.0...0.2.0)
 ### Changed
 - Merged with Type package, moved CMS and Media specific Elements to their respective packages
 - Upgrade to Application v0.2
