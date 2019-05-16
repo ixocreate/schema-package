@@ -58,7 +58,7 @@ final class Schema implements SchemaInterface, TransformableInterface
     {
         $schema = $this;
         foreach ($elements as $element) {
-            $schema = $schema->add($element);
+            $schema = $schema->withAddedElement($element);
         }
 
         return $schema;
