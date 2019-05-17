@@ -37,7 +37,10 @@ final class HtmlType extends AbstractType implements DatabaseTypeInterface
             ];
         }
 
-        return $value;
+        return [
+            'html' => '',
+            'quill' => null,
+        ];
     }
 
     /**
@@ -46,14 +49,15 @@ final class HtmlType extends AbstractType implements DatabaseTypeInterface
     public function __toString()
     {
         if (empty($this->value())) {
-            return "";
+            return '';
         }
 
-        if (empty($this->value()['quill'])) {
-            return "";
+        if ($this->value()['quill'] === null) {
+            return $this->value()['html'];
         }
 
         $lexer = new Lexer($this->value()['quill']);
+        $lexer->escapeInput = true;
         $lexer->registerListener(new class() extends InlineListener {
             public function process(Line $line)
             {

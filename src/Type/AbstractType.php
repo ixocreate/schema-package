@@ -34,7 +34,6 @@ abstract class AbstractType implements TypeInterface, NamedServiceInterface, \Se
         $type->options = $options;
         $type->value = $type->transform($value);
 
-
         return $type;
     }
 
