@@ -8,16 +8,22 @@
             "name": "IXOCREATE"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.1",
+        "ext-json": "*",
         "beberlei/assert": "^2.9",
         "doctrine/dbal": "^2.6",
-        "ixocreate/application": "^0.2",
+        "ixocreate/application": "^0.1",
         "nadar/quill-delta-parser": "^1.1",
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {
         "ixocreate/coding-standard": "^2.0",
+        "ixocreate/cms-package": "^0.2",
+        "ixocreate/media-package": "^0.2",
+        "ixocreate/asset-package": "^0.1",
         "php-coveralls/php-coveralls": "^2.1",
         "phpunit/phpunit": "^7.0"
     },

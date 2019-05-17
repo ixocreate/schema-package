@@ -127,7 +127,7 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function type(): ?string
     {
         $array = $this->value();
 
@@ -139,9 +139,17 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     }
 
     /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type();
+    }
+
+    /**
      * @return string
      */
-    public function getTarget(): string
+    public function target(): string
     {
         $array = $this->value();
 
@@ -150,6 +158,15 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
         }
 
         return $array['target'];
+    }
+
+    /**
+     * @return string
+     * @deprecated
+     */
+    public function getTarget(): string
+    {
+        return $this->target();
     }
 
     /**
