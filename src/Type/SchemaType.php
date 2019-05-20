@@ -111,7 +111,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
                 $options['schema'] = $receiver->receiveSchema($this->builder, $receiverData['options']);
             } else {
                 if (!($receiver instanceof SchemaProviderInterface)) {
-                    throw new \Exception("receiver must implement " . SchemaProviderInterface::class . ' or ' . SchemaReceiverInterface::class);
+                    throw new \Exception("Receiver '" . $value['__receiver__'] . "' must implement " . SchemaProviderInterface::class . ' or ' . SchemaReceiverInterface::class);
                 }
 
                 $name = '';
@@ -204,7 +204,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             }
 
             if (!($provider instanceof SchemaProviderInterface)) {
-                throw new \Exception("provider must implement " . SchemaProviderInterface::class);
+                throw new \Exception("Provider '" . $this->provider['class'] . "' must implement " . SchemaProviderInterface::class);
             }
 
             $this->schema = $provider->provideSchema(
