@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Schema;
 
 use Ixocreate\Schema\Element\ElementInterface;
+use Ixocreate\Schema\Element\StructuralGroupingInterface;
 use Ixocreate\Schema\Type\SchemaType;
 use Ixocreate\Schema\Type\TransformableInterface;
 use Ixocreate\Schema\Type\Type;
@@ -57,7 +58,7 @@ final class Schema implements SchemaInterface, TransformableInterface
     {
         $schema = $this;
         foreach ($elements as $element) {
-            $schema = $schema->add($element);
+            $schema = $schema->withAddedElement($element);
         }
 
         return $schema;

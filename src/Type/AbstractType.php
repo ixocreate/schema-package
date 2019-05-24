@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -33,7 +33,6 @@ abstract class AbstractType implements TypeInterface, NamedServiceInterface, \Se
         $type = clone $this;
         $type->options = $options;
         $type->value = $type->transform($value);
-
 
         return $type;
     }
