@@ -13,6 +13,7 @@ use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Package\PackageInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Schema\Element\ElementBootstrapItem;
+use Ixocreate\Schema\Link\LinkBootstrapItem;
 use Ixocreate\Schema\Type\Type;
 use Ixocreate\Schema\Type\TypeBootstrapItem;
 use Ixocreate\Schema\Type\TypeSubManager;
@@ -42,6 +43,7 @@ final class Package implements PackageInterface
         return [
             TypeBootstrapItem::class,
             ElementBootstrapItem::class,
+            LinkBootstrapItem::class
         ];
     }
 

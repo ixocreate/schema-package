@@ -5,7 +5,7 @@ namespace Ixocreate\Schema\Link;
 
 use Ixocreate\ServiceManager\NamedServiceInterface;
 
-interface LinkInterface extends \Serializable, \JsonSerializable, NamedServiceInterface
+interface LinkInterface extends \Serializable, NamedServiceInterface
 {
     /**
      * @param $value
@@ -22,5 +22,15 @@ interface LinkInterface extends \Serializable, \JsonSerializable, NamedServiceIn
      * @return string
      */
     public function assemble(): string;
+
+    /**
+     * @return mixed
+     */
+    public function toJson();
+
+    /**
+     * @return mixed
+     */
+    public function toDatabase();
 
 }

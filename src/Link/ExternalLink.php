@@ -8,7 +8,7 @@ final class ExternalLink implements LinkInterface
     /**
      * @var null|string
      */
-    private $link;
+    private $link = null;
 
     /**
      * @param $value
@@ -32,7 +32,7 @@ final class ExternalLink implements LinkInterface
      */
     public function label(): string
     {
-        return "external";
+        return "External";
     }
 
     /**
@@ -53,10 +53,7 @@ final class ExternalLink implements LinkInterface
     }
 
     /**
-     * String representation of object
-     * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
+     * @return string
      */
     public function serialize()
     {
@@ -64,13 +61,7 @@ final class ExternalLink implements LinkInterface
     }
 
     /**
-     * Constructs the object
-     * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     * The string representation of the object.
-     * </p>
-     * @return void
-     * @since 5.1.0
+     * @param string $serialized
      */
     public function unserialize($serialized)
     {
@@ -78,13 +69,17 @@ final class ExternalLink implements LinkInterface
     }
 
     /**
-     * Specify data which should be serialized to JSON
-     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function toJson()
+    {
+        return $this->link;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function toDatabase()
     {
         return $this->link;
     }
