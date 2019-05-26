@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Link;
@@ -50,7 +56,6 @@ class LinkConfiguratorTest extends TestCase
         $serviceManagerConfig = $collector[LinkManager::class . '::Config'];
         $this->assertArrayHasKey(ExternalLink::class, $serviceManagerConfig->getFactories());
     }
-
 
     public function testRegisterServices()
     {

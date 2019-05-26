@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Link;
@@ -48,7 +54,7 @@ class SitemapLinkTest extends TestCase
         ]);
 
         $this->pageRepository = $this->createMock(PageRepository::class);
-        $this->pageRepository->method('find')->willReturnCallback(function($id) {
+        $this->pageRepository->method('find')->willReturnCallback(function ($id) {
             if ($id === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
                 return $this->page;
             }

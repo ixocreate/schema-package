@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Link;
@@ -44,7 +50,7 @@ class MediaLinkTest extends TestCase
             'updatedAt' => '2018-08-10 05:41:00',
         ]);
         $this->mediaRepository = $this->createMock(MediaRepository::class);
-        $this->mediaRepository->method('find')->willReturnCallback(function($id) {
+        $this->mediaRepository->method('find')->willReturnCallback(function ($id) {
             if ($id === 'b602adea-2a6a-4644-8426-d25b84aa8bca') {
                 return $this->media;
             }

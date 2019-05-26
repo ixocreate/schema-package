@@ -37,7 +37,7 @@ class PackageTest extends TestCase
         $this->assertSame([
             TypeBootstrapItem::class,
             ElementBootstrapItem::class,
-            LinkBootstrapItem::class
+            LinkBootstrapItem::class,
         ], $package->getBootstrapItems());
         $this->assertNull($package->getConfigDirectory());
         $this->assertNull($package->getConfigProvider());

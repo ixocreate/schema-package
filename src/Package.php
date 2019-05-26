@@ -43,7 +43,7 @@ final class Package implements PackageInterface
         return [
             TypeBootstrapItem::class,
             ElementBootstrapItem::class,
-            LinkBootstrapItem::class
+            LinkBootstrapItem::class,
         ];
     }
 

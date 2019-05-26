@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Type;
@@ -49,7 +55,7 @@ final class LinkTypeTest extends TestCase
 
             if (\in_array($requestedName, [SitemapLink::class, SitemapLink::serviceName()])) {
                 $pageRepository = $this->createMock(PageRepository::class);
-                $pageRepository->method('find')->willReturnCallback(function($id) {
+                $pageRepository->method('find')->willReturnCallback(function ($id) {
                     if ($id === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
                         return new Page([
                             'id' => '84456422-0d2a-43be-b766-5b7d09d0b0f6',
@@ -71,9 +77,9 @@ final class LinkTypeTest extends TestCase
 
                 $pageRoute = $this->createMock(PageRoute::class);
                 $pageRoute->method('fromPage')->willReturnCallback(function (Page $page) {
-                   if ((string) $page->id() === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
-                       return 'https://www.ixocreate.com/test';
-                   }
+                    if ((string) $page->id() === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
+                        return 'https://www.ixocreate.com/test';
+                    }
                 });
 
                 return new SitemapLink($pageRepository, $pageRoute);
@@ -168,7 +174,6 @@ final class LinkTypeTest extends TestCase
         $linkType = $this->linkType->create([]);
         $this->assertSame('_self', $linkType->target());
         $this->assertSame('_self', $linkType->getTarget());
-
     }
 
     /**
@@ -186,7 +191,6 @@ final class LinkTypeTest extends TestCase
         $linkType = $this->linkType->create([]);
         $this->assertNull($linkType->type());
         $this->assertNull($linkType->getType());
-
     }
 
     public function testInvalidType()
@@ -275,7 +279,6 @@ final class LinkTypeTest extends TestCase
         $this->assertSame('https://www.ixocreate.com/test', (string) $linkType);
     }
 
-
     public function testSitemap()
     {
         /** @var LinkType $linkType */
@@ -286,7 +289,7 @@ final class LinkTypeTest extends TestCase
         $this->assertSame([
             'type' => 'sitemap',
             'target' => '_blank',
-            'value' => '84456422-0d2a-43be-b766-5b7d09d0b0f6'
+            'value' => '84456422-0d2a-43be-b766-5b7d09d0b0f6',
         ], $linkType->convertToDatabaseValue());
 
         $jsonArray = $linkType->jsonSerialize();
