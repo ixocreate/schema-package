@@ -11,10 +11,9 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^7.1",
+        "ext-json": "*",
         "beberlei/assert": "^2.9",
         "doctrine/dbal": "^2.6",
         "doctrine/instantiator": "^1.2",

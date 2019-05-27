@@ -42,6 +42,9 @@ class TypeTest extends TestCase
         );
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testPhpTypeCreate()
     {
         $integer = 1 ;
@@ -82,6 +85,9 @@ class TypeTest extends TestCase
         $this->assertSame($email1, $email1Check);
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testSubManagerNotSet()
     {
         $this->expectException(TypeNotCreatedException::class);
