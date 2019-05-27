@@ -75,8 +75,8 @@ final class Builder implements BuilderInterface
 
     /**
      * @param string $entityClass
-     * @return SchemaInterface
      * @throws \Doctrine\Instantiator\Exception\ExceptionInterface
+     * @return SchemaInterface
      * @deprecated
      */
     public function fromEntity(string $entityClass): SchemaInterface

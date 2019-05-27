@@ -1,5 +1,12 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
+
 namespace Ixocreate\Misc\Schema;
 
 use Ixocreate\Schema\Builder\BuilderInterface;
@@ -12,7 +19,6 @@ class FakeEntity implements SchemaAwareInterface
 {
     private function __construct()
     {
-
     }
 
     public function schema(BuilderInterface $builder): SchemaInterface

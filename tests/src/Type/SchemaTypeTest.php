@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOLIT GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Type;
@@ -45,7 +51,7 @@ class SchemaTypeTest extends TestCase
             ->disableArgumentCloning()
             ->disallowMockingUnknownTypes()
             ->getMock();
-        $container->method('get')->willReturnCallback(function ($requestedName) use ($typesToRegister){
+        $container->method('get')->willReturnCallback(function ($requestedName) use ($typesToRegister) {
             if (\array_key_exists($requestedName, $typesToRegister)) {
                 return $typesToRegister[$requestedName];
             }
@@ -53,7 +59,7 @@ class SchemaTypeTest extends TestCase
             throw new ServiceNotFoundException('Type not found');
         });
 
-        $container->method('has')->willReturnCallback(function ($requestedName) use ($typesToRegister){
+        $container->method('has')->willReturnCallback(function ($requestedName) use ($typesToRegister) {
             if (\array_key_exists($requestedName, $typesToRegister)) {
                 return true;
             }
@@ -71,6 +77,8 @@ class SchemaTypeTest extends TestCase
      * @dataProvider providerSchemaTransformations
      * @covers \Ixocreate\Schema\Type\SchemaType::transform
      * @runInSeparateProcess
+     * @param mixed $data
+     * @param mixed $check
      */
     public function testTransformationToArray(Schema $schema, $data, $check)
     {
@@ -100,7 +108,7 @@ class SchemaTypeTest extends TestCase
             [
                 'schema' => new Schema(),
                 'data' => [],
-                'check' => []
+                'check' => [],
             ],
 
             [
@@ -109,12 +117,12 @@ class SchemaTypeTest extends TestCase
                     ->withAddedElement((new TextElement())->withName('test2'))
                 ,
                 'data' => [
-                    'test1' => 'isset'
+                    'test1' => 'isset',
                 ],
                 'check' => [
                     'test1' => 'isset',
-                    'test2' => null
-                ]
+                    'test2' => null,
+                ],
             ],
 
             [
@@ -123,17 +131,18 @@ class SchemaTypeTest extends TestCase
                     ->withAddedElement((new TextElement())->withName('test2'))
                 ,
                 'data' => [
-                    'test1' => '2016-02-04'
+                    'test1' => '2016-02-04',
                 ],
                 'check' => [
                     'test1' => (new DateType())->create('2016-02-04'),
-                    'test2' => null
-                ]
+                    'test2' => null,
+                ],
             ],
 
             [
                 'schema' => (new Schema())
-                    ->withAddedElement((new SectionElement())
+                    ->withAddedElement(
+                        (new SectionElement())
                         ->withName('test1')
                         ->withAddedElement((new TextElement())->withName('section1'))
                         ->withAddedElement((new TextElement())->withName('section2'))
@@ -147,8 +156,8 @@ class SchemaTypeTest extends TestCase
                     'section1' => 'text',
                     'section2' => null,
                     'test2' => null,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }
