@@ -10,15 +10,11 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
-use Ixocreate\Cms\Entity\Page;
-use Ixocreate\Cms\Repository\PageRepository;
-use Ixocreate\Cms\Router\PageRoute;
 use Ixocreate\Misc\Schema\TypeMockHelper;
 use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\LinkElement;
 use Ixocreate\Schema\Link\ExternalLink;
 use Ixocreate\Schema\Link\LinkManager;
-use Ixocreate\Schema\Link\SitemapLink;
 use Ixocreate\Schema\Type\DateTimeType;
 use Ixocreate\Schema\Type\LinkType;
 use Ixocreate\Schema\Type\UuidType;
@@ -42,47 +38,11 @@ final class LinkTypeTest extends TestCase
                 return true;
             }
 
-            if (\in_array($requestedName, [SitemapLink::class, SitemapLink::serviceName()])) {
-                return true;
-            }
-
             return false;
         });
         $linkManager->method('get')->willReturnCallback(function ($requestedName) {
             if (\in_array($requestedName, [ExternalLink::class, ExternalLink::serviceName()])) {
                 return new ExternalLink();
-            }
-
-            if (\in_array($requestedName, [SitemapLink::class, SitemapLink::serviceName()])) {
-                $pageRepository = $this->createMock(PageRepository::class);
-                $pageRepository->method('find')->willReturnCallback(function ($id) {
-                    if ($id === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
-                        return new Page([
-                            'id' => '84456422-0d2a-43be-b766-5b7d09d0b0f6',
-                            'sitemapId' => '84456422-0d2a-43be-b766-5b7d09d0b0f6',
-                            'locale' => 'de_AT',
-                            'name' => 'test',
-                            'slug' => 'test',
-                            'publishedFrom' => null,
-                            'publishedUntil' => null,
-                            'status' => 'online',
-                            'createdAt' => '2016-02-04 16:37:00',
-                            'updatedAt' => '2018-08-10 05:41:00',
-                            'releasedAt' => '2018-08-10 05:41:00',
-                        ]);
-                    }
-
-                    return null;
-                });
-
-                $pageRoute = $this->createMock(PageRoute::class);
-                $pageRoute->method('fromPage')->willReturnCallback(function (Page $page) {
-                    if ((string) $page->id() === '84456422-0d2a-43be-b766-5b7d09d0b0f6') {
-                        return 'https://www.ixocreate.com/test';
-                    }
-                });
-
-                return new SitemapLink($pageRepository, $pageRoute);
             }
         });
 
@@ -270,46 +230,5 @@ final class LinkTypeTest extends TestCase
         $this->assertSame('external', $linkType->type());
         $this->assertSame('_blank', $linkType->target());
         $this->assertSame('https://www.ixocreate.com', (string) $linkType);
-
-
-        $linkType = $this->linkType->create(['type' => 'sitemap', 'value' => '84456422-0d2a-43be-b766-5b7d09d0b0f6', 'target' => '_blank']);
-        $linkType = \unserialize(\serialize($linkType));
-        $this->assertSame('sitemap', $linkType->type());
-        $this->assertSame('_blank', $linkType->target());
-        $this->assertSame('https://www.ixocreate.com/test', (string) $linkType);
-    }
-
-    public function testSitemap()
-    {
-        /** @var LinkType $linkType */
-        $linkType = $this->linkType->create(['type' => 'sitemap', 'value' => '84456422-0d2a-43be-b766-5b7d09d0b0f6', 'target' => '_blank']);
-        $this->assertSame('sitemap', $linkType->type());
-        $this->assertSame('_blank', $linkType->target());
-        $this->assertSame('https://www.ixocreate.com/test', (string) $linkType);
-        $this->assertSame([
-            'type' => 'sitemap',
-            'target' => '_blank',
-            'value' => '84456422-0d2a-43be-b766-5b7d09d0b0f6',
-        ], $linkType->convertToDatabaseValue());
-
-        $jsonArray = $linkType->jsonSerialize();
-        $this->assertSame('84456422-0d2a-43be-b766-5b7d09d0b0f6', (string) $jsonArray['value']['id']);
-        $this->assertSame('test', (string) $jsonArray['value']['name']);
-        $this->assertSame('test', (string) $jsonArray['value']['slug']);
-        $this->assertSame('https://www.ixocreate.com/test', $jsonArray['link']);
-        $this->assertSame('sitemap', $jsonArray['type']);
-        $this->assertSame('_blank', $jsonArray['target']);
-
-        /** @var LinkType $linkType */
-        $linkType = $this->linkType->create(['type' => 'sitemap', 'value' => ['id' => '84456422-0d2a-43be-b766-5b7d09d0b0f6'], 'target' => '_blank']);
-        $this->assertSame('https://www.ixocreate.com/test', (string) $linkType);
-
-        /** @var LinkType $linkType */
-        $linkType = $this->linkType->create(['type' => 'sitemap', 'value' => [], 'target' => '_blank']);
-        $this->assertSame('', (string) $linkType);
-
-        /** @var LinkType $linkType */
-        $linkType = $this->linkType->create(['type' => 'sitemap', 'value' => 'doesntExist', 'target' => '_blank']);
-        $this->assertSame('', (string) $linkType);
     }
 }
