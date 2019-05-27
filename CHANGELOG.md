@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.1...develop)
 
+### Added
+- Link bootstrap item & LinkManager 
+### Changed
+- Use LinkManager for LinkType
+
 ## [v0.2.1 (2019-05-20)](https://github.com/ixocreate/schema-package/compare/0.2.0...0.2.1)
 ### Fixed
 - Missing StructuralGroupingInterface import in Schema class
