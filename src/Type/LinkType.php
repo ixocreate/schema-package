@@ -26,11 +26,11 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
 
     /**
      * LinkType constructor.
+     *
      * @param LinkManager $linkManager
      */
-    public function __construct(
-        LinkManager $linkManager
-    ) {
+    public function __construct(LinkManager $linkManager)
+    {
         $this->linkManager = $linkManager;
     }
 
