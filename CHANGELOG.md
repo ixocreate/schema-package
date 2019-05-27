@@ -1,7 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.1...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.2...develop)
 
+## [v0.2.2 (2019-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.1...0.2.2)
 ### Added
 - Link bootstrap item & LinkManager 
 ### Changed
