@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
-use Ixocreate\Misc\Schema\TypeMockHelper;
 use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\LinkElement;
 use Ixocreate\Schema\Link\ExternalLink;
@@ -18,6 +17,7 @@ use Ixocreate\Schema\Link\LinkManager;
 use Ixocreate\Schema\Type\DateTimeType;
 use Ixocreate\Schema\Type\LinkType;
 use Ixocreate\Schema\Type\UuidType;
+use Ixocreate\Test\Schema\TypeMockHelper;
 use PHPUnit\Framework\TestCase;
 
 /**
