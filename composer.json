@@ -11,15 +11,19 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.1",
         "beberlei/assert": "^2.9",
         "doctrine/dbal": "^2.6",
+        "doctrine/instantiator": "^1.2",
         "ixocreate/application": "^0.2",
         "nadar/quill-delta-parser": "^1.1",
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {
+        "dg/bypass-finals": "^1.1",
         "ixocreate/coding-standard": "^2.0",
         "php-coveralls/php-coveralls": "^2.1",
         "phpunit/phpunit": "^7.0"
