@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -10,11 +10,8 @@ declare(strict_types=1);
 namespace Ixocreate\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
-use Ixocreate\Entity\Definition;
-use Ixocreate\Entity\DefinitionCollection;
-use Ixocreate\Schema\Builder\Builder;
+use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\ElementInterface;
-use Ixocreate\Schema\Entity\Schema;
 use Ixocreate\Schema\SchemaInterface;
 use Ixocreate\Schema\SchemaProviderInterface;
 use Ixocreate\Schema\SchemaReceiverInterface;
@@ -39,7 +36,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
     private $schema;
 
     /**
-     * @var Builder
+     * @var BuilderInterface
      */
     private $builder;
 
@@ -47,9 +44,9 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
      * SchemaType constructor.
      *
      * @param ServiceManagerInterface $serviceManager
-     * @param Builder $builder
+     * @param BuilderInterface $builder
      */
-    public function __construct(ServiceManagerInterface $serviceManager, Builder $builder)
+    public function __construct(ServiceManagerInterface $serviceManager, BuilderInterface $builder)
     {
         $this->serviceManager = $serviceManager;
         $this->builder = $builder;
@@ -86,10 +83,10 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             }
         }
         // TODO: remove when migration is done
-        if (empty($options['schema']) && \array_key_exists('__receiver__', $value) && \array_key_exists(
-            '__value__',
-            $value
-            )) {
+        if (empty($options['schema'])
+            && \array_key_exists('__receiver__', $value)
+            && \array_key_exists('__value__', $value)
+        ) {
             $receiverData = $value['__receiver__'];
             $value = $value['__value__'];
 
@@ -147,26 +144,21 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             return [];
         }
 
-        $definitions = [];
-        $entityData = [];
+        $data = [];
 
         /** @var ElementInterface $element */
         foreach ($this->getSchema()->all() as $element) {
-            $definitions[] = new Definition($element->name(), $element->type(), true, true);
-            $entityData[$element->name()] = null;
+            $data[$element->name()] = null;
             if (\array_key_exists($element->name(), $value)) {
-                $entityData[$element->name()] = $value[$element->name()];
+                $data[$element->name()] = Type::create($value[$element->name()], $element->type());
             }
 
             if ($element instanceof TransformableInterface) {
-                $entityData[$element->name()] = $element->transform($entityData[$element->name()]);
+                $data[$element->name()] = $element->transform($data[$element->name()]);
             }
         }
 
-        /**
-         * TODO: do not use an entity for that - schema-package should have no dependencies on entity-package
-         */
-        return (new Schema($entityData, new DefinitionCollection($definitions)))->toArray();
+        return $data;
     }
 
     /**

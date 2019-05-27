@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -10,56 +10,28 @@ declare(strict_types=1);
 namespace Ixocreate\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
-use Ixocreate\Cms\Repository\PageRepository;
-use Ixocreate\Cms\Router\PageRoute;
-use Ixocreate\Media\Entity\Media;
-use Ixocreate\Media\Repository\MediaRepository;
-use Ixocreate\Media\Uri\MediaUri;
 use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\ElementInterface;
 use Ixocreate\Schema\Element\ElementProviderInterface;
 use Ixocreate\Schema\Element\LinkElement;
+use Ixocreate\Schema\Link\LinkInterface;
+use Ixocreate\Schema\Link\LinkManager;
 
 final class LinkType extends AbstractType implements DatabaseTypeInterface, ElementProviderInterface
 {
     /**
-     * @var PageRepository
+     * @var LinkManager
      */
-    private $pageRepository;
-
-    /**
-     * @var MediaRepository
-     */
-    private $mediaRepository;
-
-    /**
-     * @var PageRoute
-     */
-    private $pageRoute;
-
-    /**
-     * @var MediaUri
-     */
-    private $uri;
+    private $linkManager;
 
     /**
      * LinkType constructor.
      *
-     * @param PageRepository $pageRepository
-     * @param MediaRepository $mediaRepository
-     * @param PageRoute $pageRoute
-     * @param MediaUri $uri
+     * @param LinkManager $linkManager
      */
-    public function __construct(
-        PageRepository $pageRepository,
-        MediaRepository $mediaRepository,
-        PageRoute $pageRoute,
-        MediaUri $uri
-    ) {
-        $this->pageRepository = $pageRepository;
-        $this->mediaRepository = $mediaRepository;
-        $this->pageRoute = $pageRoute;
-        $this->uri = $uri;
+    public function __construct(LinkManager $linkManager)
+    {
+        $this->linkManager = $linkManager;
     }
 
     /**
@@ -76,38 +48,8 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
             return [];
         }
 
-        switch ($value['type']) {
-            case 'media':
-                if (\is_array($value['value'])) {
-                    if (empty($value['value']['id'])) {
-                        return [];
-                    }
-
-                    $value['value'] = $value['value']['id'];
-                }
-
-                $value['value'] = $this->mediaRepository->find($value['value']);
-
-                if (empty($value['value'])) {
-                    return [];
-                }
-                break;
-            case 'sitemap':
-                if (\is_array($value['value'])) {
-                    if (empty($value['value']['id'])) {
-                        return [];
-                    }
-
-                    $value['value'] = $value['value']['id'];
-                }
-
-
-                $value['value'] = $this->pageRepository->find($value['value']);
-
-                if (empty($value['value'])) {
-                    return [];
-                }
-                break;
+        if ($this->linkManager->has($value['type'])) {
+            $value['value'] = $this->linkManager->get($value['type'])->create($value['value']);
         }
 
         $target = "_self";
@@ -127,7 +69,7 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function type(): ?string
     {
         $array = $this->value();
 
@@ -139,9 +81,17 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     }
 
     /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type();
+    }
+
+    /**
      * @return string
      */
-    public function getTarget(): string
+    public function target(): string
     {
         $array = $this->value();
 
@@ -150,6 +100,15 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
         }
 
         return $array['target'];
+    }
+
+    /**
+     * @return string
+     * @deprecated
+     */
+    public function getTarget(): string
+    {
+        return $this->target();
     }
 
     /**
@@ -163,19 +122,11 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
             return "";
         }
 
-        if (!empty($array['type'])) {
-            switch ($array['type']) {
-                case 'media':
-                    return $this->assembleMediaUrl();
-                case 'sitemap':
-                    return $this->assemblePageUrl();
-                case 'external':
-                    return $this->assembleExternalUrl();
-            }
+        if (!($array['value'] instanceof LinkInterface)) {
+            return "";
         }
 
-
-        return "";
+        return $array['value']->assemble();
     }
 
     /**
@@ -186,51 +137,49 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
         $array = $this->value();
 
         if (empty($array)) {
-            $array['value'] = null;
-        } elseif ($array['type'] === "media" || $array['type'] === "sitemap") {
-            $array['value'] = $array['value']->toPublicArray();
+            return [
+                'value' => null,
+                'link' => null,
+            ];
         }
 
-        $array['link'] = null;
-        if (!empty($array['type'])) {
-            switch ($array['type']) {
-                case 'media':
-                    $array['link'] = $this->assembleMediaUrl();
-                    break;
-                case 'sitemap':
-                    $array['link'] = $this->assemblePageUrl();
-                    break;
-                case 'external':
-                    $array['link'] = $this->assembleExternalUrl();
-                    break;
-                default:
-                    break;
-            }
+        $result = [
+            'type' => $array['type'],
+            'target' => $array['target'],
+            'value' => null,
+            'link' => null,
+        ];
+
+        if ($array['value'] instanceof LinkInterface) {
+            $result['value'] = $array['value']->toJson();
+            $result['link'] = $array['value']->assemble();
         }
 
-        return $array;
+        return $result;
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function convertToDatabaseValue()
     {
         $array = $this->value();
 
         if (empty($array) || empty($array['type'])) {
-            /**
-             * TODO: make links removable again
-             */
-            //$array['value'] = null; // like this?
             return null;
         }
 
-        if ($array['type'] === "media" || $array['type'] === "sitemap") {
-            $array['value'] = (string)$array['value']->id();
+        $result = [
+            'type' => $array['type'],
+            'target' => $array['target'],
+            'value' => null,
+        ];
+
+        if ($array['value'] instanceof LinkInterface) {
+            $result['value'] = $array['value']->toDatabase();
         }
 
-        return $array;
+        return $result;
     }
 
     /**
@@ -250,34 +199,6 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     }
 
     /**
-     * @return string
-     */
-    private function assemblePageUrl(): string
-    {
-        return $this->pageRoute->fromPage($this->value()['value']);
-    }
-
-    /**
-     * @return string
-     */
-    private function assembleMediaUrl(): string
-    {
-        if (!($this->value()['value'] instanceof Media)) {
-            return "";
-        }
-
-        return $this->uri->url($this->value()['value']);
-    }
-
-    /**
-     * @return string
-     */
-    private function assembleExternalUrl(): string
-    {
-        return $this->value()['value'];
-    }
-
-    /**
      * @param BuilderInterface $builder
      * @return ElementInterface
      */
@@ -293,11 +214,10 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
     {
         /** @var LinkType $type */
         $type = Type::get(LinkType::serviceName());
-        $this->mediaRepository = $type->mediaRepository;
-        $this->pageRoute = $type->pageRoute;
-        $this->pageRepository = $type->pageRepository;
-        $this->uri = $type->uri;
+        $this->linkManager = $type->linkManager;
 
         parent::unserialize($serialized);
+
+        $this->value = $this->transform($this->value);
     }
 }

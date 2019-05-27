@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -9,16 +9,12 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Builder;
 
-use Ixocreate\Entity\Definition;
-use Ixocreate\Entity\DefinitionCollection;
+use Doctrine\Instantiator\Instantiator;
 use Ixocreate\Schema\Element\ElementInterface;
-use Ixocreate\Schema\Element\ElementProviderInterface;
 use Ixocreate\Schema\Element\ElementSubManager;
 use Ixocreate\Schema\Element\GroupInterface;
-use Ixocreate\Schema\Element\TextElement;
-use Ixocreate\Schema\Schema;
-use Ixocreate\Schema\Type\TypeInterface;
-use Ixocreate\Schema\Type\TypeSubManager;
+use Ixocreate\Schema\SchemaAwareInterface;
+use Ixocreate\Schema\SchemaInterface;
 
 final class Builder implements BuilderInterface
 {
@@ -28,20 +24,13 @@ final class Builder implements BuilderInterface
     private $elementSubManager;
 
     /**
-     * @var TypeSubManager
-     */
-    private $typeSubManager;
-
-    /**
      * Builder constructor.
      *
      * @param ElementSubManager $elementSubManager
-     * @param TypeSubManager $typeSubManager
      */
-    public function __construct(ElementSubManager $elementSubManager, TypeSubManager $typeSubManager)
+    public function __construct(ElementSubManager $elementSubManager)
     {
         $this->elementSubManager = $elementSubManager;
-        $this->typeSubManager = $typeSubManager;
     }
 
     /**
@@ -85,44 +74,17 @@ final class Builder implements BuilderInterface
     }
 
     /**
-     * TODO: move this to entity-package as Entity::toSchema()
-     *
      * @param string $entityClass
-     * @return Schema
+     * @throws \Doctrine\Instantiator\Exception\ExceptionInterface
+     * @return SchemaInterface
+     * @deprecated
      */
-    public function fromEntity(string $entityClass): Schema
+    public function fromEntity(string $entityClass): SchemaInterface
     {
-        $schema = new Schema();
-        /** @var DefinitionCollection $definitions */
-        $definitions = $entityClass::getDefinitions();
+        $instantiator = new Instantiator();
+        /** @var SchemaAwareInterface $obj */
+        $obj = $instantiator->instantiate($entityClass);
 
-        /** @var Definition $definition */
-        foreach ($definitions as $definition) {
-            if (\in_array($definition->getName(), ['id', 'createdAt', 'updatedAt'])) {
-                continue;
-            }
-            if ($this->typeSubManager->has($definition->getType())) {
-                /** @var TypeInterface $type */
-                $type = $this->typeSubManager->get($definition->getType());
-                if ($type instanceof ElementProviderInterface) {
-                    /** @var ElementInterface $element */
-                    $element = $type->provideElement($this);
-                    $element = $element->withName($definition->getName())
-                        ->withLabel(\ucfirst($definition->getName()));
-
-                    $schema = $schema->withAddedElement($element);
-
-                    continue;
-                }
-            }
-
-            /** @var ElementInterface $element */
-            $element = $this->create(TextElement::class, $definition->getName());
-            $element = $element->withLabel(\ucfirst($definition->getName()));
-
-            $schema = $schema->withAddedElement($element);
-        }
-
-        return $schema;
+        return $obj->schema($this);
     }
 }

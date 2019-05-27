@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -12,6 +12,7 @@ namespace Ixocreate\Test\Schema;
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Schema\Element\ElementBootstrapItem;
+use Ixocreate\Schema\Link\LinkBootstrapItem;
 use Ixocreate\Schema\Package;
 use Ixocreate\Schema\Type\TypeBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
@@ -36,6 +37,7 @@ class PackageTest extends TestCase
         $this->assertSame([
             TypeBootstrapItem::class,
             ElementBootstrapItem::class,
+            LinkBootstrapItem::class,
         ], $package->getBootstrapItems());
         $this->assertNull($package->getConfigDirectory());
         $this->assertNull($package->getConfigProvider());
