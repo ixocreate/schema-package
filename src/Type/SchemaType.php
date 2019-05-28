@@ -149,7 +149,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
         /** @var ElementInterface $element */
         foreach ($this->getSchema()->all() as $element) {
             $data[$element->name()] = null;
-            if (\array_key_exists($element->name(), $value)) {
+            if (\array_key_exists($element->name(), $value) && $value[$element->name()] !== null) {
                 $data[$element->name()] = Type::create($value[$element->name()], $element->type());
             }
 
