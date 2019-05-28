@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.2...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.3...develop)
+
+## [v0.2.3 (2019-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.2...0.2.3)
+### Fixed
+- Travis build clover output
 
 ## [v0.2.2 (2019-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.1...0.2.2)
 ### Added
