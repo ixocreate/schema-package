@@ -18,7 +18,7 @@
         "doctrine/dbal": "^2.6",
         "doctrine/instantiator": "^1.2",
         "ixocreate/application": "^0.2",
-        "nadar/quill-delta-parser": "^1.1",
+        "ixocreate/quill-renderer": "^0.1.0",
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {

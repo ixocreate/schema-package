@@ -1,6 +1,8 @@
 # Release Notes
 
 ## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.3...develop)
+### Changed
+- Switched to ixocreate/quill-renderer
 
 ## [v0.2.3 (2019-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.2...0.2.3)
 ### Fixed
