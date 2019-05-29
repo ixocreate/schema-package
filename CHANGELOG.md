@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.5...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.6...develop)
+
+## [v0.2.6 (2019-05-29)](https://github.com/ixocreate/schema-package/compare/0.2.5...0.2.6)
+### Added
+- Builder Factory
 
 ## [v0.2.5 (2019-05-29)](https://github.com/ixocreate/schema-package/compare/0.2.4...0.2.5)
 ### Fixed
