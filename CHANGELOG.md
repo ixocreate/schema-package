@@ -1,6 +1,8 @@
 # Release Notes
 
 ## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.3...develop)
+### Fixed
+- fix SchemaType transform for transformable elements
 ### Changed
 - Switched to ixocreate/quill-renderer
 
