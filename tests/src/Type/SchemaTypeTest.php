@@ -14,7 +14,6 @@ use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\CollectionElement;
 use Ixocreate\Schema\Element\DateElement;
 use Ixocreate\Schema\Element\GroupElement;
-use Ixocreate\Schema\Element\LinkElement;
 use Ixocreate\Schema\Element\SectionElement;
 use Ixocreate\Schema\Element\TextElement;
 use Ixocreate\Schema\Schema;
@@ -117,7 +116,6 @@ class SchemaTypeTest extends TestCase
 
     public function providerSchemaTransformations()
     {
-
         return [
             [
                 'schema' => new Schema(),
@@ -200,8 +198,8 @@ class SchemaTypeTest extends TestCase
             'collection1' => [
                 [
                     '_type' => 'subElement1',
-                    'test1' => 'some other text'
-                ]
+                    'test1' => 'some other text',
+                ],
             ],
         ];
 
@@ -227,7 +225,6 @@ class SchemaTypeTest extends TestCase
 
         $this->assertFalse(isset($schemaType->doesntExist));
         $this->assertNull($schemaType->doesntExist);
-
     }
 
     public function testBaseDatabaseType()
