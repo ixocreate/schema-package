@@ -207,7 +207,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             return $this->schema;
         }
 
-        throw new \Exception("Cant initialize without schema");
+        throw new \Exception('Cant initialize without schema');
     }
 
     public function __get($name)
