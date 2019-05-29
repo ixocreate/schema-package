@@ -15,13 +15,19 @@ use Ixocreate\Schema\Element\ElementSubManager;
 use Ixocreate\Schema\Element\GroupInterface;
 use Ixocreate\Schema\SchemaAwareInterface;
 use Ixocreate\Schema\SchemaInterface;
+use Ixocreate\ServiceManager\NamedServiceInterface;
 
-final class Builder implements BuilderInterface
+final class Builder implements BuilderInterface, NamedServiceInterface
 {
     /**
      * @var ElementSubManager
      */
     private $elementSubManager;
+
+    public static function serviceName(): string
+    {
+        return BuilderInterface::class;
+    }
 
     /**
      * Builder constructor.
