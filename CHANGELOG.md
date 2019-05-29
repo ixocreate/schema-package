@@ -1,6 +1,12 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.3...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.4...develop)
+
+## [v0.2.4 (2019-05-29)](https://github.com/ixocreate/schema-package/compare/0.2.3...0.2.4)
+### Changed
+- Switched to ixocreate/quill-renderer
+### Fixed
+- SchemaType transform for transformable elements
 
 ## [v0.2.3 (2019-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.2...0.2.3)
 ### Fixed

@@ -9,11 +9,15 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Type;
 
+use Doctrine\DBAL\Types\JsonType;
 use Ixocreate\Schema\Builder\BuilderInterface;
+use Ixocreate\Schema\Element\CollectionElement;
 use Ixocreate\Schema\Element\DateElement;
+use Ixocreate\Schema\Element\GroupElement;
 use Ixocreate\Schema\Element\SectionElement;
 use Ixocreate\Schema\Element\TextElement;
 use Ixocreate\Schema\Schema;
+use Ixocreate\Schema\Type\CollectionType;
 use Ixocreate\Schema\Type\DateType;
 use Ixocreate\Schema\Type\SchemaType;
 use Ixocreate\Schema\Type\Type;
@@ -38,6 +42,14 @@ class SchemaTypeTest extends TestCase
                 $this->createMock(BuilderInterface::class)
             ),
             SchemaType::serviceName() => new SchemaType(
+                $this->createMock(ServiceManagerInterface::class),
+                $this->createMock(BuilderInterface::class)
+            ),
+            CollectionType::class => new CollectionType(
+                $this->createMock(ServiceManagerInterface::class),
+                $this->createMock(BuilderInterface::class)
+            ),
+            CollectionType::serviceName() => new CollectionType(
                 $this->createMock(ServiceManagerInterface::class),
                 $this->createMock(BuilderInterface::class)
             ),
@@ -80,7 +92,7 @@ class SchemaTypeTest extends TestCase
      * @param mixed $data
      * @param mixed $check
      */
-    public function testTransformationToArray(Schema $schema, $data, $check)
+    public function testSimpleTransformationToArray(Schema $schema, $data, $check)
     {
         $schemaType = new SchemaType(
             $this->createMock(ServiceManagerInterface::class),
@@ -159,5 +171,69 @@ class SchemaTypeTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    /**
+     * @covers \Ixocreate\Schema\Type\SchemaType::transform
+     */
+    public function testTransformableTransformationToArray()
+    {
+        $schema = (new Schema())
+            ->withAddedElement((new TextElement())->withName('text1'))
+            ->withAddedElement(
+                (new CollectionElement($this->createMock(BuilderInterface::class)))
+                    ->withName('collection1')
+                    ->withAddedElement(
+                        (new GroupElement())
+                            ->withName('subElement1')
+                            ->withLabel('subElement1')
+                            ->withElements((new Schema())
+                                ->withAddedElement((new TextElement())->withName('test1'))
+                                ->elements())
+                    )
+            );
+
+        $data = [
+            'text1' => 'some text',
+            'collection1' => [
+                [
+                    '_type' => 'subElement1',
+                    'test1' => 'some other text',
+                ],
+            ],
+        ];
+
+        $schemaType = new SchemaType(
+            $this->createMock(ServiceManagerInterface::class),
+            $this->createMock(BuilderInterface::class)
+        );
+
+        $schemaType = $schemaType->create($data, ['schema' => $schema]);
+
+        $value = $schemaType->value();
+
+        $this->assertEquals($data['text1'], $schemaType->text1);
+
+        $this->assertIsArray($value);
+        $this->assertArrayHasKey('collection1', $value);
+        $this->assertInstanceOf(CollectionType::class, $value['collection1']);
+
+        /** @var CollectionType $collection */
+        $collection = $value['collection1'];
+
+        $this->assertEquals($data['collection1'], $collection->jsonSerialize());
+
+        $this->assertFalse(isset($schemaType->doesntExist));
+        $this->assertNull($schemaType->doesntExist);
+    }
+
+    public function testBaseDatabaseType()
+    {
+        $this->assertEquals(JsonType::class, SchemaType::baseDatabaseType());
+    }
+
+    public function testServiceName()
+    {
+        $this->assertEquals('schema', SchemaType::serviceName());
     }
 }

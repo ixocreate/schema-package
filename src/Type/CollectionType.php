@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
-use Ixocreate\Schema\Builder\Builder;
+use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\SchemaInterface;
 use Ixocreate\Schema\SubSchemaReceiverInterface;
 use Ixocreate\ServiceManager\ServiceManager;
@@ -29,7 +29,7 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
     private $serviceManager;
 
     /**
-     * @var Builder
+     * @var BuilderInterface
      */
     private $builder;
 
@@ -37,9 +37,9 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
      * CollectionType constructor.
      *
      * @param ServiceManagerInterface $serviceManager
-     * @param Builder $builder
+     * @param BuilderInterface $builder
      */
-    public function __construct(ServiceManagerInterface $serviceManager, Builder $builder)
+    public function __construct(ServiceManagerInterface $serviceManager, BuilderInterface $builder)
     {
         $this->serviceManager = $serviceManager;
         $this->builder = $builder;
@@ -88,7 +88,7 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
             return $this->schema;
         }
 
-        //TODO Exception
+        throw new \Exception('Cant initialize without schema');
     }
 
     /**
@@ -142,12 +142,7 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
 
     public function __toString()
     {
-        return "";
-    }
-
-    public static function serviceName(): string
-    {
-        return 'collection';
+        return '';
     }
 
     public function jsonSerialize()
@@ -197,11 +192,6 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
         ];
     }
 
-    public static function baseDatabaseType(): string
-    {
-        return JsonType::class;
-    }
-
     /**
      * @return mixed
      */
@@ -247,6 +237,22 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
     public function rewind()
     {
         \reset($this->value);
+    }
+
+    /**
+     * @return string
+     */
+    public static function baseDatabaseType(): string
+    {
+        return JsonType::class;
+    }
+
+    /**
+     * @return string
+     */
+    public static function serviceName(): string
+    {
+        return 'collection';
     }
 
     /**

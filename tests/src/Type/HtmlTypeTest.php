@@ -82,8 +82,8 @@ class HtmlTypeTest extends TestCase
         $type = new HtmlType();
 
         $value = [
-            'html' => '<p>Lorem ipsum &lt;&gt;&amp; &quot;&apos;</p>',
-            'quill' => '{"ops":[{"insert":"Lorem ipsum <>& \"\'\n"}]}',
+            'html' => "<p>Lorem ipsum &lt;&gt;&amp; &quot;&#039;</p>",
+            'quill' => \json_decode('{"ops":[{"insert":"Lorem ipsum <>& \"\'\n"}]}', true),
         ];
 
         $type = $type->create($value);
@@ -102,7 +102,7 @@ class HtmlTypeTest extends TestCase
 
         $value = [
             'html' => '',
-            'quill' => $delta,
+            'quill' => \json_decode($delta, true),
         ];
 
         $type = $type->create($value);
@@ -119,7 +119,7 @@ class HtmlTypeTest extends TestCase
         ];
         $deltas[] = [
             '{"ops":[{"attributes":{"bold":true},"insert":"Bold"},{"insert":"\n"},{"attributes":{"italic":true},"insert":"Italic"},{"insert":"\n"},{"attributes":{"underline":true},"insert":"Underline"},{"insert":"\n"}]}',
-            '<p><strong>Bold</strong></p><p><em>Italic</em></p><p><u>Underline</u></p>',
+            '<p><b>Bold</b></p><p><i>Italic</i></p><p><u>Underline</u></p>',
         ];
         // $deltas[] = [
         //     '{"ops":[{"attributes":{"strike":true},"insert":"strike"},{"insert":"\n"}]}',
