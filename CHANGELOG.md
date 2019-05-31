@@ -1,6 +1,8 @@
 # Release Notes
 
 ## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.6...develop)
+### Fixed
+- request BuilderInterface instead of Builder
 
 ## [v0.2.6 (2019-05-29)](https://github.com/ixocreate/schema-package/compare/0.2.5...0.2.6)
 ### Added

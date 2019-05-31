@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Type\Factory;
 
-use Ixocreate\Schema\Builder\Builder;
+use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Type\CollectionType;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
@@ -24,6 +24,6 @@ final class CollectionTypeFactory implements FactoryInterface
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
-        return new CollectionType($container, $container->get(Builder::class));
+        return new CollectionType($container, $container->get(BuilderInterface::class));
     }
 }
