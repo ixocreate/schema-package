@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOLIT GmbH
+ * @copyright IXOCREATE GmbH
  * @license MIT License
  */
 
