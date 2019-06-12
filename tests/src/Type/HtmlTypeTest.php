@@ -46,7 +46,7 @@ class HtmlTypeTest extends TestCase
 
         $value = [
             'html' => '<h1>Lorem ipsum dolor sit amet consectetuer adipiscing elit</h1>',
-            'quill' => '[]',
+            'quill' => [],
         ];
         $type = $type->create($value);
         $this->assertSame($value, $type->value());
@@ -55,9 +55,16 @@ class HtmlTypeTest extends TestCase
     public function testDefaultTransform()
     {
         $type = new HtmlType();
+        $type = $type->create(null);
 
-        $type = $type->create(true);
+        $this->assertSame(['html' => '', 'quill' => null], $type->value());
+    }
 
+    public function testTransformTypeChecks()
+    {
+        $type = new HtmlType();
+        $type = $type->create(['html' => [], 'quill' => 'string']);
+        
         $this->assertSame(['html' => '', 'quill' => null], $type->value());
     }
 

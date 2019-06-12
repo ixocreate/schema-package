@@ -28,10 +28,10 @@ final class HtmlType extends AbstractType implements DatabaseTypeInterface
             ];
         }
 
-        if (\is_array($value) && \array_key_exists("html", $value) && \array_key_exists("quill", $value)) {
+        if (\is_array($value) && \array_key_exists('html', $value) && \array_key_exists('quill', $value)) {
             return [
-                'html' => $value['html'],
-                'quill' => $value['quill'],
+                'html' => (\is_string($value['html'])) ? $value['html'] : '',
+                'quill' => (\is_array($value['quill'])) ? $value['quill'] : null,
             ];
         }
 
@@ -50,7 +50,7 @@ final class HtmlType extends AbstractType implements DatabaseTypeInterface
             return '';
         }
 
-        if ($this->value()['quill'] === null) {
+        if (empty($this->value()['quill'])) {
             return $this->value()['html'];
         }
 
