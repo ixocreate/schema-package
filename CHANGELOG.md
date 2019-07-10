@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.7...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.8...develop)
+
+## [v0.2.8 (2019-07-10)](https://github.com/ixocreate/schema-package/compare/0.2.7...0.2.8)
+### Fixed
+- Fix external link type
 
 ## [v0.2.7 (2019-06-04)](https://github.com/ixocreate/schema-package/compare/0.2.6...0.2.7)
 ### Fixed
