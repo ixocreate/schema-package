@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.8...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.9...develop)
+
+## [v0.2.9 (2019-07-16)](https://github.com/ixocreate/schema-package/compare/0.2.8...0.2.9)
+### Changed
+- Performance optimization for uuid type 
 
 ## [v0.2.8 (2019-07-10)](https://github.com/ixocreate/schema-package/compare/0.2.7...0.2.8)
 ### Fixed

@@ -19,17 +19,17 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
     /**
      * @param $value
      * @throws \Assert\AssertionFailedException
-     * @return mixed|\Ramsey\Uuid\UuidInterface
+     * @return string
      */
     protected function transform($value)
     {
         if ($value instanceof UuidInterface) {
-            return $value;
+            return (string) $value;
         }
 
         Assertion::uuid($value);
 
-        return Uuid::fromString($value);
+        return $value;
     }
 
     /**
@@ -37,7 +37,12 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
      */
     public function __toString()
     {
-        return $this->value()->toString();
+        return $this->value;
+    }
+
+    public function value(): UuidInterface
+    {
+        return Uuid::fromString($this->value());
     }
 
     /**
@@ -45,7 +50,7 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
      */
     public function convertToDatabaseValue()
     {
-        return (string)$this;
+        return $this->value;
     }
 
     /**
