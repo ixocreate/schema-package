@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.9...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.10...develop)
+
+## [v0.2.10 (2019-07-17)](https://github.com/ixocreate/schema-package/compare/0.2.9...0.2.10)
 ### Fixed
 - Uuid recursion error
 
