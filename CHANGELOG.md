@@ -1,6 +1,8 @@
 # Release Notes
 
 ## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.10...develop)
+### Added
+- MultiSelect element `createNewDeferred` option
 
 ## [v0.2.10 (2019-07-17)](https://github.com/ixocreate/schema-package/compare/0.2.9...0.2.10)
 ### Fixed
