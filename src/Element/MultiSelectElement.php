@@ -26,6 +26,16 @@ final class MultiSelectElement extends AbstractSingleElement
     /**
      * @var bool
      */
+    private $createNew = false;
+
+    /**
+     * @var bool
+     */
+    private $createNewDeferred = false;
+
+    /**
+     * @var bool
+     */
     private $extendedSelect = false;
 
     /**
@@ -101,6 +111,43 @@ final class MultiSelectElement extends AbstractSingleElement
     /**
      * @return bool
      */
+    public function createNew(): bool
+    {
+        return $this->createNew;
+    }
+
+    /**
+     * @return bool
+     */
+    public function createNewDeferred(): bool
+    {
+        return $this->createNewDeferred;
+    }
+
+    /**
+     * @return MultiSelectElement
+     */
+    public function withCreateNew(): MultiSelectElement
+    {
+        $element = clone $this;
+        $element->createNew = true;
+        return $element;
+    }
+
+    /**
+     * @return MultiSelectElement
+     */
+    public function withCreateNewDeferred(): MultiSelectElement
+    {
+        $element = clone $this;
+        $element->createNew = true;
+        $element->createNewDeferred = true;
+        return $element;
+    }
+
+    /**
+     * @return bool
+     */
     public function extendedSelect(): bool
     {
         return $this->extendedSelect;
@@ -126,6 +173,8 @@ final class MultiSelectElement extends AbstractSingleElement
         $array = parent::jsonSerialize();
         $array['options'] = $this->options();
         $array['resource'] = $this->resource();
+        $array['createNew'] = $this->createNew();
+        $array['createNewDeferred'] = $this->createNewDeferred();
         $array['extendedSelect'] = $this->extendedSelect();
 
         return $array;
