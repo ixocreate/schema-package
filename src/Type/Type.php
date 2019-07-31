@@ -172,7 +172,7 @@ final class Type
      */
     private function convertValue($value, string $type)
     {
-        if ($value instanceof $type ) {
+        if ($value instanceof $type) {
             return $value;
         }
 

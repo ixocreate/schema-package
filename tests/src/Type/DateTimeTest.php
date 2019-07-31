@@ -99,7 +99,6 @@ final class DateTimeTest extends TestCase
         $newDateTimeType = \unserialize(\serialize($dateTimeType));
         $this->assertInstanceOf(DateTimeType::class, $newDateTimeType);
         $this->assertSame((new DateTime('2012-12-12 12:12:12'))->format('c'), $newDateTimeType->convertToDatabaseValue()->format('c'));
-
     }
 
     public function testProvideElement()
