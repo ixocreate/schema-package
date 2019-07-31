@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.11...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.12...develop)
+
+## [v0.2.12 (2019-07-31)](https://github.com/ixocreate/schema-package/compare/0.2.11...0.2.12)
 ### Changed
 - Changed few method visibilities to public in Type to avoid duplicate code
 - More lazy DateTimeType
