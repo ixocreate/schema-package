@@ -84,12 +84,8 @@ final class Type
     {
         $value = $this->convertValue($value, $type);
 
-        if ($this->isPhpType($type)) {
-            $functionName = "\is_" . $type;
-            if (!$functionName($value)) {
-                throw new InvalidTypeException(\sprintf("'%s' is not a '%s'", \gettype($value), $type));
-            }
-
+        if (self::isPhpType($type)) {
+            self::checkPhpType($value, $type);
             return $value;
         }
 
@@ -121,23 +117,52 @@ final class Type
         return $this->subManager->get($type);
     }
 
+    public static function checkPhpType($value, string $type)
+    {
+        $check = true;
+        switch ($type) {
+            case TypeInterface::TYPE_STRING:
+                $check = \is_string($value);
+                break;
+            case TypeInterface::TYPE_ARRAY:
+                $check = \is_array($value);
+                break;
+            case TypeInterface::TYPE_BOOL:
+                $check = \is_bool($value);
+                break;
+            case TypeInterface::TYPE_CALLABLE:
+                $check = \is_callable($value);
+                break;
+            case TypeInterface::TYPE_FLOAT:
+                $check = \is_float($value);
+                break;
+            case TypeInterface::TYPE_INT:
+                $check = \is_int($value);
+                break;
+        }
+
+        if ($check === false) {
+            throw new InvalidTypeException(\sprintf("'%s' is not a '%s'", \gettype($value), $type));
+        }
+    }
+
     /**
      * @param $type
      * @return bool
      */
-    private function isPhpType($type): bool
+    public static function isPhpType($type): bool
     {
-        return \in_array(
-            $type,
-            [
-                TypeInterface::TYPE_STRING,
-                TypeInterface::TYPE_ARRAY,
-                TypeInterface::TYPE_BOOL,
-                TypeInterface::TYPE_CALLABLE,
-                TypeInterface::TYPE_FLOAT,
-                TypeInterface::TYPE_INT,
-            ]
-        );
+        switch ($type) {
+            case TypeInterface::TYPE_STRING:
+            case TypeInterface::TYPE_ARRAY:
+            case TypeInterface::TYPE_BOOL:
+            case TypeInterface::TYPE_CALLABLE:
+            case TypeInterface::TYPE_FLOAT:
+            case TypeInterface::TYPE_INT:
+                return true;
+            default:
+                return false;
+        }
     }
 
     /**
@@ -147,11 +172,11 @@ final class Type
      */
     private function convertValue($value, string $type)
     {
-        if ($value instanceof $type) {
+        if ($value instanceof $type ) {
             return $value;
         }
 
-        if (!$this->isPhpType($type) && \class_exists($type)) {
+        if (!self::isPhpType($type)) {
             return $value;
         }
 
