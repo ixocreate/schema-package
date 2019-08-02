@@ -50,8 +50,12 @@ final class DateTimeType extends AbstractType implements DatabaseTypeInterface, 
 
     private function generateDateTime($value): DateTimeImmutable
     {
-        if ($value instanceof \DateTimeInterface) {
+        if ($value instanceof \DateTime) {
             return DateTimeImmutable::createFromMutable($value);
+        }
+
+        if ($value instanceof \DateTimeImmutable) {
+            return clone $value;
         }
 
         if (\is_int($value)) {
