@@ -14,7 +14,7 @@
     "require": {
         "php": "^7.1",
         "ext-json": "*",
-        "beberlei/assert": "^2.9",
+        "beberlei/assert": "^3.2",
         "doctrine/dbal": "^2.6",
         "doctrine/instantiator": "^1.2",
         "ixocreate/application": "^0.2",
