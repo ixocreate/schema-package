@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.12...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.13...develop)
+
+## [v0.2.13 (2019-08-02)](https://github.com/ixocreate/schema-package/compare/0.2.12...0.2.13)
+### Fixed
+- DateTimeType loading by DateTimeImmutable::createFromMutable
 
 ## [v0.2.12 (2019-07-31)](https://github.com/ixocreate/schema-package/compare/0.2.11...0.2.12)
 ### Changed
