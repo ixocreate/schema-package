@@ -75,7 +75,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             if (!\is_array($provider) || !\array_key_exists('class', $provider) || !\array_key_exists(
                 'name',
                 $provider
-                )) {
+            )) {
                 throw new \Exception('Invalid schema provider');
             }
             if (empty($provider['options'])) {
