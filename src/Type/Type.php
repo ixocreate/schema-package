@@ -122,7 +122,7 @@ final class Type
         $check = true;
         switch ($type) {
             case TypeInterface::TYPE_STRING:
-                $check = \is_string($value);
+                $check = \is_string($value) || \ctype_digit($value) || \is_numeric($value);
                 break;
             case TypeInterface::TYPE_ARRAY:
                 $check = \is_array($value);
@@ -134,10 +134,10 @@ final class Type
                 $check = \is_callable($value);
                 break;
             case TypeInterface::TYPE_FLOAT:
-                $check = \is_float($value);
+                $check = \is_float($value) || \is_numeric($value);
                 break;
             case TypeInterface::TYPE_INT:
-                $check = \is_int($value);
+                $check = \is_int($value) || \ctype_digit($value);
                 break;
         }
 
