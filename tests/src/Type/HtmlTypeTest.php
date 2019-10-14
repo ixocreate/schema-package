@@ -36,13 +36,13 @@ class HtmlTypeTest extends TestCase
             'html' => '<h1>Lorem ipsum dolor sit amet consectetuer adipiscing elit</h1>',
         ];
         $type = $type->create($value);
-        $this->assertSame(['html' => '', 'quill' => null], $type->value());
+        $this->assertSame(['html' => '<h1>Lorem ipsum dolor sit amet consectetuer adipiscing elit</h1>', 'quill' => null], $type->value());
 
         $value = [
             'quill' => '[]',
         ];
         $type = $type->create($value);
-        $this->assertSame(['html' => '', 'quill' => null], $type->value());
+        $this->assertSame(['html' => '', 'quill' => '[]'], $type->value());
 
         $value = [
             'html' => '<h1>Lorem ipsum dolor sit amet consectetuer adipiscing elit</h1>',
