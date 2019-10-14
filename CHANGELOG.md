@@ -1,6 +1,11 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.13...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.16...develop)
+
+## [v0.2.16 (2019-10-14)](https://github.com/ixocreate/schema-package/compare/0.2.13...0.2.16)
+### Changed
+- HtmlType: allow to return a value even when delta or html is empty
+- Less strict php native type checks for backwards compatibility
 
 ## [v0.2.13 (2019-08-02)](https://github.com/ixocreate/schema-package/compare/0.2.12...0.2.13)
 ### Fixed
