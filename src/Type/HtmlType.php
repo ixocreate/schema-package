@@ -28,16 +28,9 @@ final class HtmlType extends AbstractType implements DatabaseTypeInterface
             ];
         }
 
-        if (\is_array($value) && \array_key_exists("html", $value) && \array_key_exists("quill", $value)) {
-            return [
-                'html' => $value['html'],
-                'quill' => $value['quill'],
-            ];
-        }
-
         return [
-            'html' => '',
-            'quill' => null,
+            'html' => $value['html'] ?? '',
+            'quill' => $value['quill'] ?? null,
         ];
     }
 
