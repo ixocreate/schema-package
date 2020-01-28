@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.17...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.18...develop)
+
+## [v0.2.18 (2020-01-28)](https://github.com/ixocreate/schema-package/compare/0.2.17...0.2.18)
+### Fixed
+- Fix Integer TypeCheck
 
 ## [v0.2.17 (2019-11-06)](https://github.com/ixocreate/schema-package/compare/0.2.16...0.2.17)
 ### Added

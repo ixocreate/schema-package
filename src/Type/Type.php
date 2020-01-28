@@ -137,7 +137,7 @@ final class Type
                 $check = \is_float($value) || \is_numeric($value);
                 break;
             case TypeInterface::TYPE_INT:
-                $check = \is_int($value) || \ctype_digit($value);
+                $check = \is_int($value) || \preg_match('/^-?\d+$/', $value);
                 break;
         }
 
