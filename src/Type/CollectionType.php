@@ -16,7 +16,7 @@ use Ixocreate\Schema\SubSchemaReceiverInterface;
 use Ixocreate\ServiceManager\ServiceManager;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 
-final class CollectionType extends AbstractType implements DatabaseTypeInterface, \Iterator
+final class CollectionType extends AbstractType implements DatabaseTypeInterface, \Iterator, \Countable
 {
     /**
      * @var SchemaInterface
@@ -237,6 +237,11 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
     public function rewind()
     {
         \reset($this->value);
+    }
+
+    public function count()
+    {
+        return \count($this->value);
     }
 
     /**
