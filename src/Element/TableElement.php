@@ -14,9 +14,13 @@ use Ixocreate\Schema\Type\TypeInterface;
 final class TableElement extends AbstractSingleElement
 {
     private $minCols = null;
+
     private $maxCols = null;
+
     private $minRows = null;
+
     private $maxRows = null;
+
     private $header = null;
 
     public function type(): string
