@@ -111,6 +111,17 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
         return $this->target();
     }
 
+    public function link(): ?LinkInterface
+    {
+        $array = $this->value();
+
+        if (empty($array)) {
+            return null;
+        }
+
+        return $array['value'];
+    }
+
     /**
      * @return string
      */
@@ -119,11 +130,11 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
         $array = $this->value();
 
         if (empty($array)) {
-            return "";
+            return '';
         }
 
         if (!($array['value'] instanceof LinkInterface)) {
-            return "";
+            return '';
         }
 
         return $array['value']->assemble();
