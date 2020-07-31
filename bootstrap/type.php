@@ -21,6 +21,7 @@ $type->addType(DateType::class);
 $type->addType(LinkType::class);
 $type->addType(HtmlType::class);
 $type->addType(YouTubeType::class);
+$type->addType(VimeoType::class);
 $type->addType(PriceType::class);
 $type->addType(MapType::class);
 $type->addType(SchemaType::class, SchemaTypeFactory::class);

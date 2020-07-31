@@ -31,6 +31,7 @@ use Ixocreate\Schema\Element\TabbedGroupElement;
 use Ixocreate\Schema\Element\TableElement;
 use Ixocreate\Schema\Element\TextareaElement;
 use Ixocreate\Schema\Element\TextElement;
+use Ixocreate\Schema\Element\VimeoElement;
 use Ixocreate\Schema\Element\YouTubeElement;
 
 /** @var ElementConfigurator $element */
@@ -50,6 +51,7 @@ $element->addElement(GroupElement::class);
 $element->addElement(LinkElement::class);
 $element->addElement(HtmlElement::class);
 $element->addElement(YouTubeElement::class);
+$element->addElement(VimeoElement::class);
 $element->addElement(PriceElement::class);
 $element->addElement(MapElement::class);
 $element->addElement(TabbedGroupElement::class);
