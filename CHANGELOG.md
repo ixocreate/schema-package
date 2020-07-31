@@ -1,10 +1,14 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.20...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.21...develop)
 
-## [v0.2.19 (2020-07-31)](https://github.com/ixocreate/schema-package/compare/0.2.19...0.2.20)
+## [v0.2.21 (2020-07-31)](https://github.com/ixocreate/schema-package/compare/0.2.20...0.2.21)
 ### Added
 - Add vimeo element
+
+## [v0.2.20 (2020-05-27)](https://github.com/ixocreate/schema-package/compare/0.2.19...0.2.20)
+### Changed
+- improve LinkType
 
 ## [v0.2.19 (2020-05-13)](https://github.com/ixocreate/schema-package/compare/0.2.18...0.2.19)
 ### Added
