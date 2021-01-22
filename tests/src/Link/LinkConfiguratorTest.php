@@ -9,8 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema\Link;
 
-use Ixocreate\Application\Service\ServiceManagerConfig;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Application\ServiceManager\ServiceManagerConfig;
+use Ixocreate\Application\ServiceManager\SubManagerConfig;
 use Ixocreate\Schema\Link\ExternalLink;
 use Ixocreate\Schema\Link\LinkConfigurator;
 use Ixocreate\Schema\Link\LinkManager;
@@ -69,6 +70,6 @@ class LinkConfiguratorTest extends TestCase
         $configurator->registerService($serviceRegistry);
 
         $this->assertArrayHasKey(LinkManager::class . '::Config', $collector);
-        $this->assertInstanceOf(ServiceManagerConfig::class, $collector[LinkManager::class . '::Config']);
+        $this->assertInstanceOf(SubManagerConfig::class, $collector[LinkManager::class . '::Config']);
     }
 }

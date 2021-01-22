@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\Application\Service\ServiceManagerConfigurator;
+use Ixocreate\Application\ServiceManager\ServiceManagerConfigurator;
 use Ixocreate\Schema\Builder\BuilderFactory;
 use Ixocreate\Schema\Builder\BuilderInterface;
 use Ixocreate\Schema\Element\ElementSubManager;

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Element;
 
-use Ixocreate\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\AbstractSubManager;
 
-final class ElementSubManager extends SubManager
+final class ElementSubManager extends AbstractSubManager
 {
 }

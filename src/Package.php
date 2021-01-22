@@ -9,9 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema;
 
-use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
+use Ixocreate\Application\Package\BootInterface;
 use Ixocreate\Application\Package\PackageInterface;
-use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Schema\Element\ElementBootstrapItem;
 use Ixocreate\Schema\Link\LinkBootstrapItem;
 use Ixocreate\Schema\Type\Type;
@@ -19,26 +18,12 @@ use Ixocreate\Schema\Type\TypeBootstrapItem;
 use Ixocreate\Schema\Type\TypeSubManager;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 
-final class Package implements PackageInterface
+final class Package implements PackageInterface, BootInterface
 {
     /**
-     * @param ConfiguratorRegistryInterface $configuratorRegistry
+     * @return array
      */
-    public function configure(ConfiguratorRegistryInterface $configuratorRegistry): void
-    {
-    }
-
-    /**
-     * @param ServiceRegistryInterface $serviceRegistry
-     */
-    public function addServices(ServiceRegistryInterface $serviceRegistry): void
-    {
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getBootstrapItems(): ?array
+    public function getBootstrapItems(): array
     {
         return [
             TypeBootstrapItem::class,
@@ -46,18 +31,6 @@ final class Package implements PackageInterface
             LinkBootstrapItem::class,
         ];
     }
-
-    /**
-     * @return array|null
-     */
-    public function getConfigProvider(): ?array
-    {
-        return null;
-    }
-
-    /**
-     * @param ServiceManagerInterface $serviceManager
-     */
 
     /**
      * @param ServiceManagerInterface $serviceManager
@@ -76,18 +49,10 @@ final class Package implements PackageInterface
     }
 
     /**
-     * @return null|string
+     * @return array
      */
-    public function getConfigDirectory(): ?string
+    public function getDependencies(): array
     {
-        return null;
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getDependencies(): ?array
-    {
-        return null;
+        return [];
     }
 }

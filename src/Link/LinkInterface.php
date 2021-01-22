@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Link;
 
-use Ixocreate\ServiceManager\NamedServiceInterface;
+use Ixocreate\Application\ServiceManager\NamedServiceInterface;
 
 interface LinkInterface extends \Serializable, NamedServiceInterface
 {

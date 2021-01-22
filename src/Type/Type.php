@@ -27,7 +27,7 @@ final class Type
     private $subManager;
 
     /**
-     * @param SubManagerInterface $subManager
+     * @param SubManagerInterface|null $subManager
      */
     private function __construct(SubManagerInterface $subManager = null)
     {

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Element;
 
-use Ixocreate\ServiceManager\NamedServiceInterface;
+use Ixocreate\Application\ServiceManager\NamedServiceInterface;
 
 interface ElementInterface extends \JsonSerializable, NamedServiceInterface
 {

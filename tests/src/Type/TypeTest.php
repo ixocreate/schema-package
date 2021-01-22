@@ -9,36 +9,36 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Entity\Type;
 
-use Ixocreate\Application\Service\ServiceManagerConfig;
-use Ixocreate\Application\Service\ServiceManagerConfigurator;
+use Ixocreate\Application\ServiceManager\ServiceManagerConfig;
+use Ixocreate\Application\ServiceManager\ServiceManagerConfigurator;
 use Ixocreate\Misc\Schema\Type\MockType;
 use Ixocreate\Schema\Type\Exception\InvalidTypeException;
 use Ixocreate\Schema\Type\Exception\TypeNotCreatedException;
 use Ixocreate\Schema\Type\Exception\TypeNotFoundException;
 use Ixocreate\Schema\Type\Type;
 use Ixocreate\Schema\Type\TypeInterface;
+use Ixocreate\Schema\Type\TypeSubManager;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;
 use Ixocreate\ServiceManager\ServiceManager;
 use Ixocreate\ServiceManager\ServiceManagerSetup;
-use Ixocreate\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\AbstractSubManager;
 use PHPUnit\Framework\TestCase;
 
 class TypeTest extends TestCase
 {
     /**
-     * @var SubManager
+     * @var AbstractSubManager
      */
     private $subManager;
 
-    public function setUp()
+    public function setUp(): void
     {
         $serviceManagerConfigurator = new ServiceManagerConfigurator();
         $serviceManagerConfigurator->addFactory(MockType::class, AutowireFactory::class);
 
-        $this->subManager = new SubManager(
+        $this->subManager = new TypeSubManager(
             new ServiceManager(new ServiceManagerConfig(new ServiceManagerConfigurator()), new ServiceManagerSetup()),
-            new ServiceManagerConfig($serviceManagerConfigurator),
-            TypeInterface::class
+            new ServiceManagerConfig($serviceManagerConfigurator)
         );
     }
 

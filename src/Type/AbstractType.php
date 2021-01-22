@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Type;
 
-use Ixocreate\ServiceManager\NamedServiceInterface;
+use Ixocreate\Application\ServiceManager\NamedServiceInterface;
 
 abstract class AbstractType implements TypeInterface, NamedServiceInterface, \Serializable
 {

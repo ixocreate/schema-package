@@ -30,7 +30,7 @@ final class LinkTypeTest extends TestCase
      */
     private $linkType;
 
-    public function setUp()
+    public function setUp(): void
     {
         $linkManager = $this->createMock(LinkManager::class);
         $linkManager->method('has')->willReturnCallback(function ($requestedName) {

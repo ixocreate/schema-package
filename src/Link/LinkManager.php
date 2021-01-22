@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Schema\Link;
 
-use Ixocreate\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\AbstractSubManager;
 
-final class LinkManager extends SubManager
+final class LinkManager extends AbstractSubManager
 {
 }

@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Ixocreate\Schema;
 
 use Ixocreate\Schema\Builder\BuilderInterface;
-use Ixocreate\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\AbstractSubManager;
 
-class SchemaSubManager extends SubManager implements SchemaProviderInterface
+class SchemaSubManager extends AbstractSubManager implements SchemaProviderInterface
 {
     public function provideSchema($name, BuilderInterface $builder, $options = []): SchemaInterface
     {

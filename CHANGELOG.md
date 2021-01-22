@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.2.21...develop)
+## [Unreleased](https://github.com/ixocreate/schema-package/compare/0.3.0...develop)
+
+## [v0.3.0 (2021-01-21)](https://github.com/ixocreate/event-package/compare/0.2.21...0.3.0)
+### Update
+- Update to Application 0.3
 
 ## [v0.2.21 (2020-07-31)](https://github.com/ixocreate/schema-package/compare/0.2.20...0.2.21)
 ### Added

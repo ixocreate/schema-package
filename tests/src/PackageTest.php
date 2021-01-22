@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Schema;
 
-use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
-use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Schema\Element\ElementBootstrapItem;
 use Ixocreate\Schema\Link\LinkBootstrapItem;
 use Ixocreate\Schema\Package;
@@ -25,13 +23,9 @@ class PackageTest extends TestCase
      */
     public function testPackage()
     {
-        $configuratorRegistry = $this->getMockBuilder(ConfiguratorRegistryInterface::class)->getMock();
-        $serviceRegistry = $this->getMockBuilder(ServiceRegistryInterface::class)->getMock();
         $serviceManager = $this->getMockBuilder(ServiceManagerInterface::class)->getMock();
 
         $package = new Package();
-        $package->configure($configuratorRegistry);
-        $package->addServices($serviceRegistry);
         $package->boot($serviceManager);
 
         $this->assertSame([
@@ -39,9 +33,8 @@ class PackageTest extends TestCase
             ElementBootstrapItem::class,
             LinkBootstrapItem::class,
         ], $package->getBootstrapItems());
-        $this->assertNull($package->getConfigDirectory());
-        $this->assertNull($package->getConfigProvider());
-        $this->assertNull($package->getDependencies());
+
+        $this->assertEmpty($package->getDependencies());
         $this->assertDirectoryExists($package->getBootstrapDirectory());
     }
 }

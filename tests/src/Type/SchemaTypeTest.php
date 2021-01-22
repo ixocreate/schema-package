@@ -32,7 +32,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SchemaTypeTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $typesToRegister = [
             DateType::class => new DateType(),
