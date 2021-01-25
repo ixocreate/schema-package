@@ -18,7 +18,6 @@ use Ixocreate\Schema\Type\TypeSubManager;
 
 /** @var ServiceManagerConfigurator $serviceManager */
 $serviceManager->addSubManager(ElementSubManager::class);
-$serviceManager->addSubManager(SchemaSubManager::class);
 $serviceManager->addSubManager(TypeSubManager::class);
 $serviceManager->addSubManager(LinkManager::class);
 
