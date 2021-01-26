@@ -146,7 +146,6 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
 
         $data = [];
 
-        /** @var ElementInterface $element */
         foreach ($this->getSchema()->all() as $element) {
             $data[$element->name()] = null;
             if (\array_key_exists($element->name(), $value) && $value[$element->name()] !== null) {

@@ -74,7 +74,7 @@ final class CollectionElement extends AbstractGroup
     public function withAddedElement(ElementInterface $element): SchemaInterface
     {
         if (!($element instanceof GroupElement)) {
-            throw new \Exception("Element must be a GroupElement");
+            throw new \Exception('Element must be a GroupElement');
         }
         return parent::withAddedElement($element);
     }

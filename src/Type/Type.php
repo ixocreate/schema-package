@@ -89,7 +89,6 @@ final class Type
             return $value;
         }
 
-        /** @var TypeInterface $typeObject */
         $typeObject = $this->doGet($type);
 
         if ($value instanceof $typeObject) {
@@ -185,7 +184,7 @@ final class Type
             case TypeInterface::TYPE_BOOL:
             case TypeInterface::TYPE_FLOAT:
             case TypeInterface::TYPE_INT:
-                $value = \call_user_func(Convert::class . "::convert" . \ucfirst($type), $value);
+                $value = \call_user_func(Convert::class . '::convert' . \ucfirst($type), $value);
                 break;
             case TypeInterface::TYPE_ARRAY:
             case TypeInterface::TYPE_CALLABLE:

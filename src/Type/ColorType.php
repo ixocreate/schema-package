@@ -25,12 +25,12 @@ final class ColorType extends AbstractType implements DatabaseTypeInterface, Ele
     protected function transform($value)
     {
         if (!\is_string($value)) {
-            throw new \Exception("invalid hex color");
+            throw new \Exception('invalid hex color');
         }
 
         if (\mb_substr($value, 0, 1) !== '#') {
             //TODO Exception
-            throw new \Exception("invalid hex color");
+            throw new \Exception('invalid hex color');
         }
         $value = \mb_substr($value, 1);
 
@@ -40,12 +40,12 @@ final class ColorType extends AbstractType implements DatabaseTypeInterface, Ele
 
         if (\mb_strlen($value) !== 6) {
             //TODO Exception
-            throw new \Exception("invalid hex color");
+            throw new \Exception('invalid hex color');
         }
 
         if (!\preg_match('/^[a-f0-9]{6}$/i', $value)) {
             //TODO Exception
-            throw new \Exception("invalid hex color");
+            throw new \Exception('invalid hex color');
         }
 
         return '#' . $value;

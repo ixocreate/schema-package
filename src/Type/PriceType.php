@@ -47,7 +47,7 @@ final class PriceType extends AbstractType implements DatabaseTypeInterface, Ele
     public function __toString()
     {
         if (empty($this->value())) {
-            return "";
+            return '';
         }
         return (string)$this->value()['price'];
     }

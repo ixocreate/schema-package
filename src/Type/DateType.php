@@ -40,7 +40,7 @@ final class DateType extends AbstractType implements DatabaseTypeInterface, Elem
             return new \DateTimeImmutable($value['date'], new \DateTimeZone($value['timezone']));
         }
 
-        throw new \Exception("invalid date format");
+        throw new \Exception('invalid date format');
     }
 
     /**

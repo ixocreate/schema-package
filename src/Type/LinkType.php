@@ -52,7 +52,7 @@ final class LinkType extends AbstractType implements DatabaseTypeInterface, Elem
             $value['value'] = $this->linkManager->get($value['type'])->create($value['value']);
         }
 
-        $target = "_self";
+        $target = '_self';
         if (\array_key_exists('target', $value) && \in_array($value['target'], ['_self', '_blank'])) {
             $target = $value['target'];
         }

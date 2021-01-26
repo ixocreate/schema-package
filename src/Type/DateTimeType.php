@@ -25,7 +25,7 @@ final class DateTimeType extends AbstractType implements DatabaseTypeInterface, 
     /**
      * @param $value
      * @throws \Exception
-     * @return \DateTimeImmutable
+     * @return \DateTimeInterface|int|array
      */
     protected function transform($value)
     {
@@ -45,10 +45,10 @@ final class DateTimeType extends AbstractType implements DatabaseTypeInterface, 
             return $value;
         }
 
-        throw new \Exception("invalid date format");
+        throw new \Exception('invalid date format');
     }
 
-    private function generateDateTime($value): DateTimeImmutable
+    private function generateDateTime($value): ?DateTimeImmutable
     {
         if ($value instanceof \DateTime) {
             return DateTimeImmutable::createFromMutable($value);
@@ -65,6 +65,8 @@ final class DateTimeType extends AbstractType implements DatabaseTypeInterface, 
         if (\is_array($value) && \array_key_exists('date', $value) && \array_key_exists('timezone', $value)) {
             return new \DateTimeImmutable($value['date'], new \DateTimeZone($value['timezone']));
         }
+
+        return null;
     }
 
     public function value()
@@ -87,7 +89,7 @@ final class DateTimeType extends AbstractType implements DatabaseTypeInterface, 
     public function format($format): string
     {
         if ($this->value() === null) {
-            return "";
+            return '';
         }
         return $this->value()->format($format);
     }
