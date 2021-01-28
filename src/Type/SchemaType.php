@@ -96,7 +96,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             }
 
             if (empty($receiver)) {
-                foreach (\array_keys($this->serviceManager->getServiceManagerConfig()->getSubManagers()) as $subManager) {
+                foreach (\array_keys($this->serviceManager->serviceManagerConfig()->getSubManagers()) as $subManager) {
                     if ($this->serviceManager->get($subManager)->has($receiverData['receiver'])) {
                         $receiver = $this->serviceManager->get($subManager)->get($receiverData['receiver']);
                         break;
@@ -186,7 +186,7 @@ final class SchemaType extends AbstractType implements DatabaseTypeInterface, \S
             }
 
             if (empty($provider)) {
-                foreach (\array_keys($this->serviceManager->getServiceManagerConfig()->getSubManagers()) as $subManager) {
+                foreach (\array_keys($this->serviceManager->serviceManagerConfig()->getSubManagers()) as $subManager) {
                     if ($this->serviceManager->get($subManager)->has($this->provider['class'])) {
                         $provider = $this->serviceManager->get($subManager)->get($this->provider['class']);
                         break;

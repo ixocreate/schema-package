@@ -72,7 +72,7 @@ final class CollectionType extends AbstractType implements DatabaseTypeInterface
             }
 
             if (empty($receiver)) {
-                foreach (\array_keys($this->serviceManager->getServiceManagerConfig()->getSubManagers()) as $subManager) {
+                foreach (\array_keys($this->serviceManager->serviceManagerConfig()->getSubManagers()) as $subManager) {
                     if ($this->serviceManager->get($subManager)->has($this->options['subSchema'])) {
                         $receiver = $this->serviceManager->get($subManager)->get($this->options['subSchema']);
                         break;
