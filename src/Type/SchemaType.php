@@ -11,7 +11,6 @@ namespace Ixocreate\Schema\Type;
 
 use Doctrine\DBAL\Types\JsonType;
 use Ixocreate\Schema\Builder\BuilderInterface;
-use Ixocreate\Schema\Element\ElementInterface;
 use Ixocreate\Schema\SchemaInterface;
 use Ixocreate\Schema\SchemaProviderInterface;
 use Ixocreate\Schema\SchemaReceiverInterface;
