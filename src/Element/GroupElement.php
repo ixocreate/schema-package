@@ -21,7 +21,7 @@ final class GroupElement extends AbstractGroup implements StructuralGroupingInte
     /**
      * @var string
      */
-    private $nameExpression = "";
+    private $nameExpression = '';
 
     /**
      * @return string
