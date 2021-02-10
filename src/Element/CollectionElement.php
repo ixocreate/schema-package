@@ -114,14 +114,20 @@ final class CollectionElement extends AbstractGroup
      * @param string $name
      * @param string $label
      * @param SchemaInterface $schema
+     * @param string $nameExpression
      * @throws \Exception
      * @return CollectionElement
      */
-    public function addCollectionElement(string $name, string $label, SchemaInterface $schema): CollectionElement
+    public function addCollectionElement(string $name, string $label, SchemaInterface $schema, string $nameExpression = ''): CollectionElement
     {
         $group = $this->builder->create(GroupElement::class, $name);
         $group = $group->withLabel($label);
         $group = $group->withElements($schema->elements());
+
+        if ($nameExpression != '') {
+            $group = $group->withNameExpression($nameExpression);
+        }
+
         return $this->withAddedElement($group);
     }
 }

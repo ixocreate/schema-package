@@ -11,7 +11,7 @@ namespace Ixocreate\Schema\Element;
 
 use Ixocreate\Schema\Type\HtmlType;
 
-final class HtmlElement extends AbstractSingleElement
+final class HtmlElement extends AbstractTextElement
 {
     public function type(): string
     {

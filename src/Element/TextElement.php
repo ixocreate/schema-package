@@ -11,7 +11,7 @@ namespace Ixocreate\Schema\Element;
 
 use Ixocreate\Schema\Type\TypeInterface;
 
-final class TextElement extends AbstractSingleElement
+final class TextElement extends AbstractTextElement
 {
     public function type(): string
     {
