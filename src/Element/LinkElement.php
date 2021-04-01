@@ -13,6 +13,8 @@ use Ixocreate\Schema\Type\LinkType;
 
 final class LinkElement extends AbstractSingleElement
 {
+    private $allowedLinkTypes = null;
+
     public function type(): string
     {
         return LinkType::class;
@@ -26,5 +28,26 @@ final class LinkElement extends AbstractSingleElement
     public static function serviceName(): string
     {
         return 'link';
+    }
+
+    public function withAllowedLinkTypes(array $allowedLinkTypes): LinkElement
+    {
+        $element = clone $this;
+        $element->allowedLinkTypes = $allowedLinkTypes;
+
+        return $element;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        $array = parent::jsonSerialize();
+        $array['required'] = $this->isRequired();
+        $array['disabled'] = $this->isDisabled();
+        $array['allowedLinkTypes'] = $this->allowedLinkTypes;
+
+        return $array;
     }
 }
