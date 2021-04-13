@@ -13,7 +13,6 @@ use Ixocreate\Application\ServiceManager\ServiceManagerConfig;
 use Ixocreate\Application\ServiceManager\ServiceManagerConfigurator;
 use Ixocreate\Misc\Schema\Type\MockType;
 use Ixocreate\Schema\Type\Exception\InvalidTypeException;
-use Ixocreate\Schema\Type\Exception\TypeNotCreatedException;
 use Ixocreate\Schema\Type\Exception\TypeNotFoundException;
 use Ixocreate\Schema\Type\Type;
 use Ixocreate\Schema\Type\TypeInterface;

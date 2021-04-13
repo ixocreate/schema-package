@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Ixocreate\Schema\Type;
 
 use Ixocreate\Schema\Type\Exception\InvalidTypeException;
-use Ixocreate\Schema\Type\Exception\TypeNotCreatedException;
 use Ixocreate\Schema\Type\Exception\TypeNotFoundException;
 use Ixocreate\ServiceManager\SubManager\SubManagerInterface;
 

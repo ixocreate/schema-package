@@ -44,6 +44,7 @@ abstract class AbstractTextElement extends AbstractSingleElement
     public function withCharacterBoundaries(?int $min, ?int $max): AbstractTextElement
     {
         $element = clone $this;
+        $this->characterCount = true;
         $element->characterBoundaries = [
             'min' => $min,
             'max' => $max,
