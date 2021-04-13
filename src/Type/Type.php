@@ -104,12 +104,11 @@ final class Type
      */
     private function doGet(string $type): TypeInterface
     {
-//        if (!$this->subManager->has($type)) {
-//            throw new TypeNotFoundException(\sprintf("Can't find type '%s'", $type));
-//        }
-
-        /** @var TypeInterface $typeObject */
-        return $this->subManager->get($type);
+        try {
+            return $this->subManager->get($type);
+        } catch (\Exception $e) {
+            throw new TypeNotFoundException(\sprintf("Can't find or create type '%s'", $type), 0, $e);
+        }
     }
 
     public static function checkPhpType($value, string $type)

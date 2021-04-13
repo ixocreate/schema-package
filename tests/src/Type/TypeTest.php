@@ -55,6 +55,8 @@ class TypeTest extends TestCase
         $callable = function () {
         };
 
+        Type::initialize($this->subManager);
+
         $this->assertSame($integer, Type::create($integer, TypeInterface::TYPE_INT));
         $this->assertSame($string, Type::create($string, TypeInterface::TYPE_STRING));
         $this->assertSame($array, Type::create($array, TypeInterface::TYPE_ARRAY));
@@ -76,22 +78,13 @@ class TypeTest extends TestCase
         $integer = 1 ;
         $this->assertSame($integer, Type::create($integer, TypeInterface::TYPE_INT));
 
-        $email = Type::create("noreply@example.com", MockType::class);
+        $email = Type::create('noreply@example.com', MockType::class);
         $this->assertInstanceOf(MockType::class, $email);
-        $this->assertSame("noreply@example.com", $email->getValue());
+        $this->assertSame('noreply@example.com', $email->value());
 
-        $email1 = new MockType("noreply@example.com");
+        $email1 = new MockType('noreply@example.com');
         $email1Check = Type::create($email1, MockType::class);
         $this->assertSame($email1, $email1Check);
-    }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testSubManagerNotSet()
-    {
-        $this->expectException(TypeNotCreatedException::class);
-        Type::create("noreply@example.com", MockType::class);
     }
 
     /**
@@ -102,6 +95,6 @@ class TypeTest extends TestCase
         Type::initialize($this->subManager);
 
         $this->expectException(TypeNotFoundException::class);
-        Type::create("noreply@example.com", \DateTime::class);
+        Type::create('noreply@example.com', \DateTime::class);
     }
 }

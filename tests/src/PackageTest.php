@@ -13,6 +13,7 @@ use Ixocreate\Schema\Element\ElementBootstrapItem;
 use Ixocreate\Schema\Link\LinkBootstrapItem;
 use Ixocreate\Schema\Package;
 use Ixocreate\Schema\Type\TypeBootstrapItem;
+use Ixocreate\Schema\Type\TypeSubManager;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -24,6 +25,7 @@ class PackageTest extends TestCase
     public function testPackage()
     {
         $serviceManager = $this->getMockBuilder(ServiceManagerInterface::class)->getMock();
+        $serviceManager->method('get')->willReturn($this->createMock(TypeSubManager::class));
 
         $package = new Package();
         $package->boot($serviceManager);
