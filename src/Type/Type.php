@@ -29,7 +29,7 @@ final class Type
     /**
      * @param SubManagerInterface|null $subManager
      */
-    private function __construct(SubManagerInterface $subManager = null)
+    private function __construct(SubManagerInterface $subManager)
     {
         $this->subManager = $subManager;
     }
@@ -37,7 +37,7 @@ final class Type
     /**
      * @param SubManagerInterface|null $subManager
      */
-    public static function initialize(SubManagerInterface $subManager = null)
+    public static function initialize(SubManagerInterface $subManager)
     {
         self::$type = new Type($subManager);
     }
@@ -47,8 +47,8 @@ final class Type
      */
     private static function getInstance(): Type
     {
-        if (!(self::$type instanceof Type)) {
-            self::initialize();
+        if (self::$type === null) {
+            throw new \Exception('Type not initialized');
         }
 
         return self::$type;
@@ -104,13 +104,9 @@ final class Type
      */
     private function doGet(string $type): TypeInterface
     {
-        if (!($this->subManager instanceof SubManagerInterface)) {
-            throw new TypeNotCreatedException(\sprintf("'%s' was not initialized with a SubManager", Type::class));
-        }
-
-        if (!$this->subManager->has($type)) {
-            throw new TypeNotFoundException(\sprintf("Can't find type '%s'", $type));
-        }
+//        if (!$this->subManager->has($type)) {
+//            throw new TypeNotFoundException(\sprintf("Can't find type '%s'", $type));
+//        }
 
         /** @var TypeInterface $typeObject */
         return $this->subManager->get($type);

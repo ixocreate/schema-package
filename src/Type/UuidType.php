@@ -11,7 +11,6 @@ namespace Ixocreate\Schema\Type;
 
 use Assert\Assertion;
 use Doctrine\DBAL\Types\GuidType;
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 final class UuidType extends AbstractType implements DatabaseTypeInterface
@@ -24,7 +23,7 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
     protected function transform($value)
     {
         if ($value instanceof UuidInterface) {
-            return (string) $value;
+            return (string)$value;
         }
 
         Assertion::uuid($value);
@@ -42,7 +41,7 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
 
     public function value(): UuidInterface
     {
-        return Uuid::fromString($this->value);
+        return $this->value;
     }
 
     /**
