@@ -39,7 +39,7 @@ final class UuidType extends AbstractType implements DatabaseTypeInterface
         return $this->value;
     }
 
-    public function value(): UuidInterface
+    public function value(): string
     {
         return $this->value;
     }
