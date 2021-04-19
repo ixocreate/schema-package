@@ -76,7 +76,14 @@ final class IxoLink implements InsertInterface
         /** @var LinkType $link */
         $link = Type::create($link['ixolink'], LinkType::serviceName());
 
-        return \sprintf('<a href="%s" target="%s">%s</a>', (string) $link, $link->target(), $this->insert->html());
+        $attr = [
+            'href="' . (string)$link . '"',
+            'target="' . $link->target() . '"',
+        ];
+        if ($link->target() === '_blank') {
+            $attr[] = 'rel="noopener noreferrer"';
+        }
+        return '<a ' . \implode(' ', $attr) . '>' . $this->insert->html() . '</a>';
     }
 
     /**
