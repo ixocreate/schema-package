@@ -24,8 +24,12 @@ final class DateType extends AbstractType implements DatabaseTypeInterface, Elem
      */
     protected function transform($value)
     {
-        if ($value instanceof \DateTimeInterface) {
-            return new \DateTimeImmutable('@' . $value->getTimestamp());
+        if ($value instanceof \DateTime) {
+            return \DateTimeImmutable::createFromMutable($value);
+        }
+
+        if ($value instanceof \DateTimeImmutable) {
+            return $value;
         }
 
         if (\is_string($value)) {
